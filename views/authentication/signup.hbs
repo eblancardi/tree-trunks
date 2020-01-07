@@ -1,0 +1,23 @@
+<h1>Signup</h1>
+
+<form action="/signup" method="POST" Id="form-container">
+  <label for="username">Username</label>
+  <input id="username" type="text" name="username" placeholder="JohnDoe">
+  <br><br> 
+
+  <label for="passeword">Password</label>
+  <input id="password" type="passeword" name="password" placeholder="toto">
+
+  {{#if message}}
+    <div class="error-message">{{Oups, there was a mistake!}} </div>
+  {{/if}}
+  <br><br>
+
+  <button>Create account </button>
+
+<p class="account-message">
+  Do you already have an account ?
+  <a href="/login">Login</a>
+</p>
+
+</form>
