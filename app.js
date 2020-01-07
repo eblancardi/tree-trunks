@@ -44,15 +44,19 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+const index_router = require('./routes/router');
+app.use('/', index_router);
 
+const auth_router = require('./routes/authentication');
+app.use('/', auth_router);
 
-// default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+const plant_router = require('./routes/plant');
+app.use('/plant', plant_router);
 
+const profile_router = require('./routes/profile');
+app.use('/profile', profile_router);
 
-
-const index = require('./routes/index');
-app.use('/', index);
-
+const user_router = require('./routes/user');
+app.use('/user', user_router);
 
 module.exports = app;
