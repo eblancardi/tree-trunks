@@ -9,7 +9,7 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-mongoose.connect('mongodb://tree-trunks', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true})
 
 // When successfully connected
 mongoose.connection.on('connected', () => console.log('Mongoose default connection open'));
