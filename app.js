@@ -11,7 +11,7 @@ const path         = require('path');
 
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/exampleApp', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true})
 
 // When successfully connected
 mongoose.connection.on('connected', () => console.log('Mongoose default connection open'));
