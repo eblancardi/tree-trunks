@@ -9,17 +9,9 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true})
-=======
-mongoose.connect('mongodb://tree-trunks', {useNewUrlParser: true})
->>>>>>> 1023ed878c67f5f5276cb7bcd5a26efd264f0292
-=======
-mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true})
->>>>>>> 7b56e93fd4442e80e169d7e69629535fe31956a0
+
 
 // When successfully connected
 mongoose.connection.on('connected', () => console.log('Mongoose default connection open'));
