@@ -8,6 +8,7 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+<<<<<<< HEAD
 const User         = require("./models/user");
 const passport     = require("passport");
 const flash       = require ("connect-flash");
@@ -17,17 +18,26 @@ const LocalStrategy = require("passport-local").Strategy;
 
 mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true})
 
+=======
+const passport     = require("passport");
+const User         = require("./models/user");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+
+
+mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true})
+>>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
 
 // When successfully connected
-mongoose.connection.on('connected', () => console.log('Mongoose default connection open'));
+//mongoose.connection.on('connected', () => console.log('Mongoose default connection open'));
 
 // If the connection throws an error
-mongoose.connection.on('error', (err) =>  console.log(`Mongoose default connection error: ${err}`));
+//mongoose.connection.on('error', (err) =>  console.log(`Mongoose default connection error: ${err}`));
 
 // When the connection is disconnected
-mongoose.connection.on('disconnected', () => console.log('Mongoose default connection disconnected'));
+//mongoose.connection.on('disconnected', () => console.log('Mongoose default connection disconnected'));
 
 // If the Node process ends, close the Mongoose connection
+
 process.on('SIGINT', () => {
   mongoose.connection.close(() => {
     console.log('Mongoose default connection disconnected through app termination');
@@ -94,7 +104,6 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -115,6 +124,45 @@ app.use('/profile', profile_router);
 const user_router = require('./routes/user');
 app.use('/user', user_router);
 
+<<<<<<< HEAD
+=======
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: "61416855395-pmc18hto9ol6l2ccvlcl3160ka9e3t1i.apps.googleusercontent.com", // 👈
+      clientSecret: "w7_02FNat43ephLfb9dLlN6k", // 👈
+      callbackURL: "/auth/google/callback"
+    },
+
+    (accessToken, refreshToken, profile, done) => {
+      // to see the structure of the data in received response:
+      console.log("Google account details:", profile);
+
+      User.findOne({ googleID: profile.id })
+        .then(user => {
+          if (user) {
+            done(null, user);
+            return;
+          }
+
+          User.create({ googleID: profile.id })
+            .then(newUser => {
+              done(null, newUser);
+            })
+            .catch(err => done(err))
+          ;
+        })
+        .catch(err => done(err))
+      ;
+    }
+  )
+);
+
+
+
+
+
+>>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
 
 
 module.exports = app;

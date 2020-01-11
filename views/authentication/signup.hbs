@@ -1,3 +1,4 @@
+<a href="/">Back home</a>
 <h1>Signup</h1>
 
 <form action="/signup" method="POST" Id="form-container">
@@ -5,6 +6,7 @@
   <input id="username" type="text" name="username" placeholder="JohnDoe">
   <br><br> 
 
+<<<<<<< HEAD
   <label for="email">Email</label>
   <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
   <br><br> 
@@ -14,6 +16,13 @@
 
   {{#if message}}
     <div class="error-message">{{ message }} </div>
+=======
+  <label for="password">Password</label>
+  <input id="password" type="passeword" name="password" placeholder="toto">
+
+  {{#if message}}
+    <div class="error-message">error message to do</div>
+>>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
   {{/if}}
   <br><br>
 

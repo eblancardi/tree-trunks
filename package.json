@@ -21,7 +21,11 @@
     "morgan": "^1.9.0",
     "node-sass-middleware": "^0.11.0",
     "passport": "^0.4.1",
+<<<<<<< HEAD
     "passport-local": "^1.0.0",
+=======
+    "passport-google-oauth20": "^2.0.0",
+>>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {

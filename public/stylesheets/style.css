@@ -1,14 +1,69 @@
 body {
   padding: 50px;
+<<<<<<< HEAD
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: lightgreen;
 }
 
-nav {
+header {
   background-color: white;
+=======
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightblue;
+>>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
 }
 
 a {
   color: red;
+<<<<<<< HEAD
+=======
+  background-color: aquamarine;
+>>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
 }
 
+img {
+max-width: 60vw;
+max-height: 50vh;
+display:block;
+}
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+}
+
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
