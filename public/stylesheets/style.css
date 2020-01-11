@@ -1,10 +1,14 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: lightblue;
+  background-color: lightgreen;
+}
+
+nav {
+  background-color: white;
 }
 
 a {
-  color: #00B7FF;
+  color: red;
 }
 

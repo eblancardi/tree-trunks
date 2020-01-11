@@ -8,6 +8,11 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const User         = require("./models/user");
+const passport     = require("passport");
+const flash       = require ("connect-flash");
+const session     = require("express-session");
+const LocalStrategy = require("passport-local").Strategy;
 
 
 mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true})
@@ -41,6 +46,46 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// passeport login
+app.use(session({
+  secret: "our-passport-local-startegy-app",
+  resave: true,
+  saveUninitialized: true
+}));
+
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.finById(id, (err, user) => {
+  if (err) { return cb(err);}
+  cb (null, user);
+  });
+});
+
+app.use(flash());
+
+passport.use(new LocalStrategy({
+  passReqToCallback: true
+  },(req, username, password, next) => {
+  User.findOne({ username }, (err, user) => {
+    if (err) {  
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)){
+      return next(null, false, { message: "incorrect password" });
+    }
+  }
+  return next(null, user);
+  });
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
@@ -69,5 +114,7 @@ app.use('/profile', profile_router);
 
 const user_router = require('./routes/user');
 app.use('/user', user_router);
+
+
 
 module.exports = app;

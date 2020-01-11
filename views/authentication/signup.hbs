@@ -5,11 +5,15 @@
   <input id="username" type="text" name="username" placeholder="JohnDoe">
   <br><br> 
 
+  <label for="email">Email</label>
+  <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
+  <br><br> 
+
   <label for="passeword">Password</label>
-  <input id="password" type="passeword" name="password" placeholder="toto">
+  <input id="password" type="password" name="password" placeholder="toto">
 
   {{#if message}}
-    <div class="error-message">{{Oups, there was a mistake!}} </div>
+    <div class="error-message">{{ message }} </div>
   {{/if}}
   <br><br>
 
