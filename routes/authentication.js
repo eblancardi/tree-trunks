@@ -24,7 +24,8 @@ auth_router.post("/login", (passport.authenticate("local", {
 
 // routes signup
 auth_router.get('/signup', (req, res, next) => {
-  res.render('authentication/signup', { "message": req.flash("error")});
+  res.render('authentication/signup', 
+  { "message": req.flash("error")});
 });
 
 auth_router.post('/signup', (req, res, next) => {
