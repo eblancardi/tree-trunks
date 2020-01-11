@@ -28,9 +28,7 @@ const userSchema = new Schema({
       required: true
     },
 
-    usertreeimg:{
-      type: String,
-      required:true
+  
     }
 })
  
