@@ -8,6 +8,10 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const passport     = require("passport");
+const User         = require("./models/user");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+
 
 mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true})
 
@@ -21,6 +25,7 @@ mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true
 //mongoose.connection.on('disconnected', () => console.log('Mongoose default connection disconnected'));
 
 // If the Node process ends, close the Mongoose connection
+
 process.on('SIGINT', () => {
   mongoose.connection.close(() => {
     console.log('Mongoose default connection disconnected through app termination');
@@ -47,7 +52,6 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -67,5 +71,43 @@ app.use('/profile', profile_router);
 
 const user_router = require('./routes/user');
 app.use('/user', user_router);
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: "61416855395-pmc18hto9ol6l2ccvlcl3160ka9e3t1i.apps.googleusercontent.com", // 👈
+      clientSecret: "w7_02FNat43ephLfb9dLlN6k", // 👈
+      callbackURL: "/auth/google/callback"
+    },
+
+    (accessToken, refreshToken, profile, done) => {
+      // to see the structure of the data in received response:
+      console.log("Google account details:", profile);
+
+      User.findOne({ googleID: profile.id })
+        .then(user => {
+          if (user) {
+            done(null, user);
+            return;
+          }
+
+          User.create({ googleID: profile.id })
+            .then(newUser => {
+              done(null, newUser);
+            })
+            .catch(err => done(err))
+          ;
+        })
+        .catch(err => done(err))
+      ;
+    }
+  )
+);
+
+
+
+
+
+
 
 module.exports = app;

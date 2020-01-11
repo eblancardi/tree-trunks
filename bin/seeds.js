@@ -47,6 +47,16 @@ const trees = [
     bloom: "October",
   },
  
+
+  {
+    name: "Silky Oak",
+    family:"Oceania 2",
+    shape: "narrow conical",
+    origin: "Eastern Australia",
+    description:" The Silky Oak (also known as Australian, Silver-oak) grows fast when young but considerably slows down also in subtropical and dry forests, as it can withstand drought. It is a frost-intolerant species, so it needs protection when planted young. The wood is much appreciated for the building of musical instruments, particularly guitars. It used to be common also for external window joinery before the advent of aluminium",
+    climate: "warm, temperate; frost-intolerant",
+    bloom: "Winter",
+  }
 ];
 
 mongoose

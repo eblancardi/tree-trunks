@@ -1,7 +1,7 @@
 
   const mongoose = require('mongoose')
  
-  const UserTreeSchema = new mongoose.Schema({
+  const userTreeSchema = new mongoose.Schema({
     name: String,
     family: String, // enum: [], // to define afterwards 
     shape: String,
@@ -20,6 +20,6 @@
     }
   })
    
-  const UserTree = mongoose.model('Post', UserTreeSchema)
+  const userTree = mongoose.model('Post', userTreeSchema)
    
-  module.exports = UserTree
+  module.exports = userTree
