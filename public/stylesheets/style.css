@@ -1,12 +1,24 @@
 body {
   padding: 50px;
+<<<<<<< HEAD
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightgreen;
+}
+
+header {
+  background-color: white;
+=======
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: lightblue;
+>>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
 }
 
 a {
   color: red;
+<<<<<<< HEAD
+=======
   background-color: aquamarine;
+>>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
 }
 
 img {
