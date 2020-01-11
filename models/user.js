@@ -32,17 +32,11 @@ const userSchema = new Schema({
       type: String,
 
     }, 
-    }, {
-      timestamps : { createdAt: "created_at", updatedAt: "updated_at" }
-    }
-<<<<<<< HEAD
+  }, {
+    timestamps : { createdAt: "created_at", updatedAt: "updated_at" }
+  }
 );
-  
-module.exports = mongoose.model('User', UserSchema)
-=======
-})
  
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
->>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550

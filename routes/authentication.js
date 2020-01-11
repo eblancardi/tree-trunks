@@ -74,15 +74,11 @@ auth_router.get('/logout', (req, res, next) => {
   });
 });
 
-<<<<<<< HEAD
 // route private page
 
 auth_router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
   res.render ("private", {user: req.user });
 });
-=======
-
-const passport = require("passport");
 
 auth_router.get(
   "/auth/google",
@@ -105,8 +101,5 @@ auth_router.get("/auth/google/callback", passport.authenticate("google", {
   successRedirect: "/profile", // define the route to be redirected to
   failureRedirect: "/authentication"
 }));
-
-
->>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
 
 module.exports = auth_router;

@@ -8,24 +8,15 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-<<<<<<< HEAD
 const User         = require("./models/user");
 const passport     = require("passport");
 const flash       = require ("connect-flash");
 const session     = require("express-session");
 const LocalStrategy = require("passport-local").Strategy;
-
-
-mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true})
-
-=======
-const passport     = require("passport");
-const User         = require("./models/user");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 
 mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true})
->>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
 
 // When successfully connected
 //mongoose.connection.on('connected', () => console.log('Mongoose default connection open'));
@@ -124,8 +115,6 @@ app.use('/profile', profile_router);
 const user_router = require('./routes/user');
 app.use('/user', user_router);
 
-<<<<<<< HEAD
-=======
 passport.use(
   new GoogleStrategy(
     {
@@ -157,12 +146,5 @@ passport.use(
     }
   )
 );
-
-
-
-
-
->>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
-
 
 module.exports = app;
