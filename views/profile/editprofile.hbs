@@ -1,18 +1,65 @@
 <a class="button" href="/profile">Back to my profile</a>
 
-<h1>Edit profile</h1>
-<h2>My name</h2>
+<h1>My profile</h1> <!-- Faire le lien avec la bd -->
+<h2>My name</h2> <!-- Faire le lien avec la bd -->
+<h2>My email</h2> <!-- Faire le lien avec la bd -->
+
+<button class="button">Edit profile </button>
+
+<form>
+<!-- Faire un pop up pour le form -->
+  <div>
+     <label for="username">New Username</label>
+    <input id="username" type="text" name="username" placeholder="JohnDoe">
+  </div>  
+
+  <div>
+    <label for="email">New Email</label>
+    <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
+  </div> 
+
+  <div>
+    <label for="email">Confirm new email</label>
+    <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
+  </div>  
+
+  <div> 
+      <label for="password">New password</label>
+      <input id="password" type="password" name="password" placeholder="toto">
+  </div>
+
+  <div> 
+    <label for="password">Confirm new password</label>
+    <input id="password" type="password" name="password" placeholder="toto">
+  </div>
+</form>
+
+<div>
+  <a class="button" href="/edit" type="submit" value="Edit Profile">Change you profile</a>
+</div>
+
+<div>
+  <a class="button" href="/" type="submit" value="Delete profile">Delete profile</a>
+</div> <!-- Faire le lien avec la bd -->
+
+pop up 
+
+
+
+
+
+<!-- code jenny sur img et pop up
 <img src="/images/user-test.png" alt="">
 <button>Change photo</button>
 <p>Some info about me Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolorum saepe corrupti inventore eum?</p>
-<div class="popup" onclick="myFunction()">
+<div class="popup" onclick="myFunction()"> 
   <button>Edit info</button>
   <span class="popuptext" id="myPopup">
     <p>Edit info</p>
 TO DO
 </form>
   </span>
-  </div>
+</div>-->
 
   <h2>My fav tree</h2>
 <img src="/images/tree-test.png" alt="" class="tree-img">
@@ -21,10 +68,11 @@ TO DO
   <a class="button" href="/profile/mytrees">Edit favourite</a>
 </div>
 
+<!-- code jenny sur img et pop up
 <div class="popup" onclick="myFunction()">
   <button>delete profile</button>
   <span class="popuptext" id="myPopup">
 TO DO
 </form>
   </span>
-  </div>
+  </div> -->

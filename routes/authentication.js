@@ -10,7 +10,7 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-//routes login
+//routes login et signup
 auth_router.get('/login', (req, res, next) => {
   res.render('authentication/login', { "message": req.flash("error")});
 });
@@ -22,26 +22,25 @@ auth_router.post("/login", (passport.authenticate("local", {
   passReqToCallBack: true
 })));
 
-// routes signup
-auth_router.get('/signup', (req, res, next) => {
-  res.render('authentication/signup', 
+auth_router.get('/login', (req, res, next) => {
+  res.render('authentication/login', 
   { "message": req.flash("error")});
 });
 
-auth_router.post('/signup', (req, res, next) => {
+auth_router.post('/login', (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
 
   if (username === "" || password === "" || email === "") {
-    res.render('authentication/signup', {message : "Indicate username and password"});
+    res.render('authentication/login', {message : "Indicate username and password"});
     return;
   }
 
   User.findOne({ username })
   .then(user => {
     if (user !== null) {
-      res.render("authentication/signup", { message: "The username already exists !" });
+      res.render("authentication/login", { message: "The username already exists !" });
       return;
     }
 
@@ -57,7 +56,7 @@ auth_router.post('/signup', (req, res, next) => {
     newUser.save((err)=> {
       if (err) {
         console.log(err);
-        res.render("authentication/signup", { message: "Something went wrong !" });
+        res.render("authentication/login", { message: "Something went wrong !" });
         } else {
           res.redirect("/");
         }      
