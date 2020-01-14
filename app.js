@@ -50,8 +50,16 @@ app.use(cookieParser());
 
 app.use(flash());
 
+
+app.use(session({
+  secret: "our-passport-local-strategy-app",
+  resave: true,
+  saveUninitialized: true
+}));
+
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
@@ -114,6 +122,14 @@ app.use('/profile', profile_router);
 
 const user_router = require('./routes/user');
 app.use('/user', user_router);
+
+
+
+app.use(session({
+  secret: "our-passport-local-strategy-app",
+  resave: true,
+  saveUninitialized: true
+}));
 
 passport.use(
   new GoogleStrategy(
