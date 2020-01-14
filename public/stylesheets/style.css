@@ -1,25 +1,37 @@
+* {
+  font-family: 'Contrail One', cursive; Helvetica, Arial, sans-serif;
+}
+
 body {
   padding: 50px;
-<<<<<<< HEAD
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: lightgreen;
+  font: 14px
+  color: #086972;
 }
 
 header {
-  background-color: white;
-=======
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: lightblue;
->>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
+  font: 16px
 }
 
 a {
   color: red;
-<<<<<<< HEAD
-=======
-  background-color: aquamarine;
->>>>>>> 8afca8c9e6d07350b2595cd43cf3179b3def0550
 }
+.button {
+  color: black;
+  background-color: #a7ff83;
+  border: 1px solid #17b978;
+  border-radius: 4px;
+  padding: 0 15px;
+  cursor: pointer;
+  height:32px;
+  font-size:14px;
+  background-position: center;
+  transition: background 0.8s;
+  text-decoration:none;
+  }
+.button:active {
+  box-shadow: 0 3px 0 #071a52;
+  top: 3px;
+  }
 
 img {
 max-width: 60vw;

@@ -1,36 +1,37 @@
-<a href="/">Back home</a>
+<a class="button" href="/">Back home</a>
 
 <h1>Login</h1>
 
 <form action="/login method="POST">
-  <div>
-    <label for="username">Username</label>
-    <input type="text" name="username">
-  </div>  
-  <div>
-      <label for="email">Email</label>
-      <input type="email" name="email">
-  </div>  
-  <div> 
-    <label for="password">Password</label>
-    <input type="password" name="password" >
-  </div>
-  {{#if message}}
-    <div class="error-message"> {{ message }}</div>
-  {{/if}}
-  <div>
-    <input type="submit" value="Log In">
-  </div>
-</form>
+ 
+<div>
+      <label for="username">Username</label>
+      <input type="text" name="username">
+    </div>  
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email">
+    </div>  
+    <div> 
+      <label for="password">Password</label>
+      <input type="password" name="password" >
+    </div>
+    {{#if message}}
+      <div class="error-message"> {{ message }}</div>
+    {{/if}}
+    <div>
+      <input class="button" type="submit" value="Log In">
+    </div>
+  </form>
 
 <p class="account-message">
 No account yet?
-  <a href="/signup">Signup</a>
+  <a class="button" href="/signup">Signup</a>
 </p>
 
 
 {{#unless user}}
   <div>
-    <a href="/auth/google">Login With Google</a>
+    <a class="button" href="/auth/google">Login With Google</a>
   </div>
 {{/unless}}
