@@ -1,5 +1,4 @@
-
-  const mongoose = require('mongoose')
+const mongoose = require('mongoose')
  
   const userTreeSchema = new mongoose.Schema({
     name: String,
@@ -22,4 +21,4 @@
    
   const userTree = mongoose.model('Post', userTreeSchema)
    
-  module.exports = userTree
+  module.exports = userTree;
