@@ -7,12 +7,16 @@
 <div class="popup" onclick="myFunction()">
   <button class="button" >Select tree</button>
   <span class="popuptext" id="myPopup">
-    <p>Select country...</p>
+    <form action="/" method="POST"></form>
+    <p>Select country:</p>
     <select name="country" id="">
       <option value="india">India</option>
       <option value="india">Canada</option>
     </select>
-    <a class="button" href="/plant/confirmation">Plant tree</a>
+    <p>Choose a name for your tree:</p>
+        <input id="treename" type="text" name="treename" placeholder="Ex: Albert">
+        <a class="button" href="/plant/confirmation">Plant tree</a>
+      </form>
   </span>
   </div>
 
