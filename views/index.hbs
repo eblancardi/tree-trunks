@@ -1,22 +1,14 @@
 
 <header class = "header">
+  {{#if user}}
+<p>Welcome {{user.name}}</p> 
+{{else}}
 <nav >
   <a class="button" href="/login">Login</a>
   <a class="button" href="/signup">Signup</a>
-  <a class="button" href="/plant">Choose your tree</a>
 </nav>
-</header>
-
-
-<section>
-{{#if user}}
-Welcome {{user.name}}
-{{else}}
-
 {{/if}}
-
-
-</section>
+</header>
 
 <h1>tree trunks</h1>
 <h2>plant a tree today</h2>

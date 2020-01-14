@@ -2,6 +2,19 @@
 
 <h1>My trees</h1>
 
+<div class="grid">
+    {{#each usertree}}
+    <div class='tree-block'>
+    <img src="{{image}}"/>
+    <h2>{{name}} - {{family}}</h2>
+    <p>Planted in: {{country}}</p>
+    <p>On: {{createdDate}}</p>
+    <p>{{description}}</p>
+
+    </div>
+    {{/each}}
+</div>
+
 <img src="/images/tree-test.png" alt="" class="tree-img">
 <p>This is some information about the tree Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat ducimus voluptatum natus.</p>
 

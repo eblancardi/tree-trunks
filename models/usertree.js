@@ -1,19 +1,18 @@
 
   const mongoose = require('mongoose')
- 
+
   const userTreeSchema = new mongoose.Schema({
+    image: String,
     name: String,
     family: String, // enum: [], // to define afterwards 
     shape: String,
     origin: String,
     description: String,
-    availability: Number, // enum: [], // to define afterwards
     environment: String,
     climate: String,
     author: String,
-    bloom: Array,
-
-    
+    bloom: String,
+    country: String, // enum: [], // to define afterwards 
     createdAt: {
       type: Date,
       default: new Date()

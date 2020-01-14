@@ -49,7 +49,7 @@ app.use(cookieParser());
 
 // passeport login
 app.use(session({
-  secret: "our-passport-local-startegy-app",
+  secret: "our-passport-local-strategy-app",
   resave: true,
   saveUninitialized: true
 }));
@@ -59,7 +59,7 @@ passport.serializeUser((user, cb) => {
 });
 
 passport.deserializeUser((id, cb) => {
-  User.finById(id, (err, user) => {
+  User.findById(id, (err, user) => {
   if (err) { return cb(err);}
   cb (null, user);
   });

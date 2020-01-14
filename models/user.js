@@ -5,11 +5,13 @@ const Schema =  mongoose.Schema;
 const userSchema = new Schema({
     username: {
         type: String,
-        required: true
+        required: true, 
+        unique: true
     },
 
     googleID: { 
         type:String,
+        unique: true
 
     },
 
@@ -23,15 +25,7 @@ const userSchema = new Schema({
         required: true
     },
   
-    trees: {
-      type: String, 
-
-    },
-
-    usertreeimg:{
-      type: String,
-
-    }, 
+    trees: [ { type : Schema.Types.ObjectId, ref: 'userTree' } ],
   }, {
     timestamps : { createdAt: "created_at", updatedAt: "updated_at" }
   }
