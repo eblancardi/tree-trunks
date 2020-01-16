@@ -9,8 +9,7 @@ const userSchema = new Schema({
     },
 
     googleID: { 
-        type:String,
-        unique: true
+        type:String
 
     },
 
