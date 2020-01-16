@@ -4,33 +4,36 @@
 
 <img src="/images/tree-test.png" alt="" class="tree-img">
 <p>This is some information about the tree Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat ducimus voluptatum natus.</p>
-<div class="popup" onclick="myFunction()">
-  <button class="button" >Select tree</button>
-  <span class="popuptext" id="myPopup">
-    <form action="/" method="POST"></form>
-    <p>Select country:</p>
-    <select name="country" id="">
-      <option value="india">India</option>
-      <option value="india">Canada</option>
-    </select>
-    <p>Choose a name for your tree:</p>
-        <input id="treename" type="text" name="treename" placeholder="Ex: Albert">
-        <a class="button" href="/plant/confirmation">Plant tree</a>
-      </form>
-  </span>
-  </div>
+
+  <!-- Button trigger modal -->
+<button type="button" class="button" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
 
 <img src="/images/tree-test.png" alt="" class="tree-img">
 <p>This is some information about the tree Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat ducimus voluptatum natus.</p>
+<button type="button" class="button" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
 
 
-<div class="popup" onclick="myFunction()"><button>Select tree</button>
-  <span class="popuptext" id="myPopup">
-    <p>Select country...</p>
-    <select name="country" id="">
-      <option value="india">India</option>
-      <option value="india">Canada</option>
-    </select>
-    <a class="button" href="/plant/confirmation">Plant tree</a>
-  </span>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
