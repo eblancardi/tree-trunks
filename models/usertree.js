@@ -21,4 +21,4 @@
    
   const userTree = mongoose.model('Post', userTreeSchema)
    
-  module.exports = userTree
+  module.exports = userTree;

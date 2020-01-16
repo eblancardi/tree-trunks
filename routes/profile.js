@@ -1,15 +1,16 @@
 const express = require('express');
 const profile_router  = express.Router();
 const userTree = require('../models/usertree')
+const ensureLogin = require("connect-ensure-login");
 const uploadCloud = require('../config/cloudinary.js'); 
 
-profile_router.get('/', (req, res, next) => {
-  res.render('profile/myprofile');
+profile_router.get('/', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  res.render('profile/myprofile', {user: req.user });
 });
 
-profile_router.get('/mytrees', (req, res, next) => {
+profile_router.get('/mytrees', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   userTree.find()
-        .then(usertree => res.render('profile/mytrees', {usertree}))
+        .then(usertree => res.render('profile/mytrees',{user: req.user, usertree}))
         .catch(error => console.log('Error while getting tree from the DB: ', error))
 });
 
