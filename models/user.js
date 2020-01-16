@@ -35,6 +35,8 @@ const userSchema = new Schema({
         type: String,
     
     },
+
+    avatar: String,
   
     trees: [ { type : Schema.Types.ObjectId, ref: 'userTree' } ],
   }, {
