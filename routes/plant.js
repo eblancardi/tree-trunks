@@ -1,17 +1,20 @@
 const express = require('express');
 const plant_router  = express.Router();
-const uploadCloud = require('../config/cloudinary.js'); 
 const userTree = require('../models/usertree.js');
+const dataTrees = require("../public/javascripts/dataTrees")
+const User = require ("../models/user");
 
 plant_router.get('/', (req, res, next) => {
-  res.render('plant/plant');
+  console.log(req.user)
+  res.render("plant/plant", {tree: dataTrees, user: req.user})
 });
 
-plant_router.post('/', uploadCloud.single('photo'), (req, res, next) => {
-  const { image,name,family,description,creator,country } = req.body;
-  const newTree = new userTree({image,name,family,description,creator,country});
+plant_router.post('/', (req, res, next) => {
+  console.log(req.body)
+  const {image,name,family,shape, description,bloom, climate, creator,country } = req.body;
+  const newTree = new userTree({image,name,family,shape,description,bloom,climate,creator,country});
   newTree.save()
-    .then(res.redirect('/plant/confirmation'))
+    .then(res.redirect('/plant/confirmation'), {tree: req.body, user: req.user})
     .catch(error => {
       next(error);
     })
@@ -19,7 +22,8 @@ plant_router.post('/', uploadCloud.single('photo'), (req, res, next) => {
 });
 
 plant_router.get('/confirmation', (req, res, next) => {
-  res.render('plant/confirmation');
+  console.log(req.body)
+  res.render('plant/confirmation', {tree: userTree, user: req.user});
 });
 
 module.exports = plant_router;
