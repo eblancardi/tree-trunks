@@ -76,12 +76,12 @@ passport.use(new LocalStrategy(
   (...args) => {
     const [req,,, done] = args;
 
-    const {username, password} = req.body;
+    const {username,email,password} = req.body;
 
-    User.findOne({username})
+    User.findOne({username}||{email})
       .then(user => {
         if (!user) {
-          return done(null, false, { message: "Incorrect username" });
+          return done(null, false, { message: "Incorrect username or email" });
         }
           
         if (!bcrypt.compareSync(password, user.password)) {
@@ -148,7 +148,7 @@ passport.use(
             return;
           }
 
-          User.create({ googleID: profile.id })
+          User.create({ googleID: profile.id, username: profile.displayName, firstname: profile.name.givenName, lastname:profile.name.familyName, email: profile.emails[0].value})
             .then(newUser => {
               done(null, newUser);
             })

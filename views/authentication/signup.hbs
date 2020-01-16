@@ -1,6 +1,6 @@
 <a class="button" href="/">Back home</a>
 
-<h1>Not an account yet ? Create your account</h1>
+<h1>No account yet ? Create your account</h1>
 
 <form action="/signup" method="POST">
  
@@ -9,28 +9,39 @@
     <input id="username" type="text" name="username" placeholder="JohnDoe">
   </div>  
 
+    <div>
+    <label for="firstname">First name</label>
+    <input id="firstname" type="text" name="firstname" placeholder="John">
+  </div> 
+
+    <div>
+    <label for="lastname">Last name</label>
+    <input id="lastname" type="text" name="lastname" placeholder="Doe">
+  </div> 
+
   <div>
     <label for="email">Email</label>
     <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
   </div> 
 
-  <div>
+  <!--div>
     <label for="email">Confirm email</label>
     <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
-  </div>  
+  </div-->  
 
   <div> 
       <label for="password">Password</label>
       <input id="password" type="password" name="password" placeholder="toto">
   </div>
 
-  <div> 
+  <!--div> 
     <label for="password">Confirm password</label>
     <input id="password" type="password" name="password" placeholder="toto">
-  </div>
+  </div-->
+
 
     {{#if message}}
-    <div class="error-message">error message to do</div>
+    {{message}}
   {{/if}}
   <div>
     <input class="button" type="submit" value="Create account">
