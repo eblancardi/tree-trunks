@@ -6,11 +6,58 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Tree trunks project</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+
+
+  <link rel="stylesheet" href= "jqvmap-master/dist/jqvmap.css"/>
+  <link rel="stylesheet" href= "jqvmap-master/dist/jqvmap.min.css"/>
+
+
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script type="text/javascript" src="/jqvmap-master/dist/jquery.vmap.js"></script>
+    <script type="text/javascript" src="/jqvmap-master/dist/maps/jquery.vmap.world.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Contrail+One&display=swap" rel="stylesheet">
 </head>
 <body>
 
   {{{body}}}
+ 
+ 
+ <script >
+    jQuery(document).ready(function() {
+      jQuery('#vmap').vectorMap({ map: 'world_en',
+
+    backgroundColor: '#a5bfdd',
+    borderColor: '#818181',
+    borderOpacity: 0.25,
+    borderWidth: 1,
+    color: '#ECE0F8',
+    enableZoom: true,
+    hoverColor: '#c9dfaf',
+    hoverOpacity: null,
+    normalizeFunction: 'linear',
+    scaleColors: ['#b6d6ff', '#005ace'],
+    selectedColor: '#c9dfaf',
+    selectedRegions: null,
+    showTooltip: true,
+    onRegionClick: function(element, code, region)
+    {
+        var message = 'You clicked '
+            + region
+            + ' which has 10 trees '
+          ;
+
+        alert(message);
+    }
+       });
+    });
+
+
+
+
+
+    
+    </script>
+
 
   <script src="/javascripts/script.js"></script>
 </body>
