@@ -1,7 +1,10 @@
 
 <header class = "header">
-  {{#if user}}
-<p>Welcome {{user.name}}</p> 
+{{#if user}}
+<p>Welcome {{user.username}}</p> 
+  <div>
+    <a class="button" href="/logout">Logout</a>
+  </div>
 {{else}}
 <nav >
   <a class="button" href="/login">Login</a>

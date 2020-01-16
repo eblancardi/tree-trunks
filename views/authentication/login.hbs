@@ -2,34 +2,26 @@
 
 <h1>Login with Email</h1>
 
-<form action="/login" method="POST"></form>
-
+<form action="/login" method="POST">
   <div>
-      <label for="username">Username</label>
-      <input id="username" type="text" name="username" placeholder="JohnDoe">
+    <label for="username">Username</label>
+      <input type="text" name="username">
   </div>  
-
   <div>
     <label for="email">Email</label>
-    <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
-  </div> 
-
+    <input type="email" name="email">
+  </div>  
   <div> 
     <label for="password">Password</label>
-    <input id="password" type="password" name="password" placeholder="toto">
+    <input type="password" name="password" >
   </div>
-
-{{#if message}}
+  {{#if message}}
   <div class="error-message"> {{ message }}</div>
-{{/if}}
-
+  {{/if}}
+  <div>
+    <input class="button" type="submit" value="Log In">
+  </div>
 </form>
-
-<p class="account-message">
-  <a class="button" href="/signup" type="submit" value="Log In">Go !</a>
-</p>
-
-<h1>or login with</h1>
 
 {{#unless user}}
   <div>
@@ -37,44 +29,8 @@
   </div>
 {{/unless}}
 
-<form action="/login method="GET"></form>
+<p class="account-message">
+No account yet? <a class="button" href="/signup">Signup</a>
+</p>
 
-<h1>Not an account yet ? Create your account</h1>
-
-<form action="/login" method="POST">
- 
-  <div>
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username" placeholder="JohnDoe">
-  </div>  
-
-  <div>
-    <label for="email">Email</label>
-    <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
-  </div> 
-
-  <div>
-    <label for="email">Confirm email</label>
-    <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
-  </div>  
-
-  <div> 
-      <label for="password">Password</label>
-      <input id="password" type="password" name="password" placeholder="toto">
-  </div>
-
-  <div> 
-    <label for="password">Confirm password</label>
-    <input id="password" type="password" name="password" placeholder="toto">
-  </div>
-
-  <p class="account-message">
-    <a class="button" href="/signup" type="submit" value="Log In">Create profile</a>
-  </p>
-</form>
-
-<div>
-  <a class="button" href="/edit" type="submit" value="Edit Profile">Edit Profile</a>
-  <!-- vérifier la route -->
-</div>
 

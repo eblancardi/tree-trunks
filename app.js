@@ -8,15 +8,16 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-const User         = require("./models/user");
 const passport     = require("passport");
-const flash       = require ("connect-flash");
-const session     = require("express-session");
+const User         = require("./models/user");
+const session    = require("express-session");
+const MongoStore = require('connect-mongo')(session);
+const bcrypt = require("bcryptjs");
+const flash = require("connect-flash");
 const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
-
-mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true});
 
 // When successfully connected
 //mongoose.connection.on('connected', () => console.log('Mongoose default connection open'));
@@ -47,17 +48,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// passeport login
+app.use(flash());
+
+
 app.use(session({
   secret: "our-passport-local-strategy-app",
   resave: true,
   saveUninitialized: true
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
 });
-
 passport.deserializeUser((id, cb) => {
   User.findById(id, (err, user) => {
   if (err) { return cb(err);}
@@ -65,27 +71,29 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
-app.use(flash());
+passport.use(new LocalStrategy(
+  {passReqToCallback: true},
+  (...args) => {
+    const [req,,, done] = args;
 
-passport.use(new LocalStrategy({
-  passReqToCallback: true
-  },(req, username, password, next) => {
-  User.findOne({ username }, (err, user) => {
-    if (err) {  
-    if (!user) {
-      return next(null, false, { message: "Incorrect username" });
-    }
-    if (!bcrypt.compareSync(password, user.password)){
-      return next(null, false, { message: "incorrect password" });
-    }
+    const {username,email,password} = req.body;
+
+    User.findOne({username}||{email})
+      .then(user => {
+        if (!user) {
+          return done(null, false, { message: "Incorrect username or email" });
+        }
+          
+        if (!bcrypt.compareSync(password, user.password)) {
+          return done(null, false, { message: "Incorrect password" });
+        }
+    
+        done(null, user);
+      })
+      .catch(err => done(err))
+    ;
   }
-  return next(null, user);
-  });
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
+));
 
 // Express View engine setup
 
@@ -115,11 +123,17 @@ app.use('/profile', profile_router);
 const user_router = require('./routes/user');
 app.use('/user', user_router);
 
+app.use(session({
+  secret: "our-passport-local-strategy-app",
+  resave: true,
+  saveUninitialized: true
+}));
+
 passport.use(
   new GoogleStrategy(
     {
-      clientID: "61416855395-pmc18hto9ol6l2ccvlcl3160ka9e3t1i.apps.googleusercontent.com", // 👈
-      clientSecret: "w7_02FNat43ephLfb9dLlN6k", // 👈
+      clientID: "61416855395-pmc18hto9ol6l2ccvlcl3160ka9e3t1i.apps.googleusercontent.com",
+      clientSecret: "w7_02FNat43ephLfb9dLlN6k", 
       callbackURL: "/auth/google/callback"
     },
 
@@ -134,7 +148,7 @@ passport.use(
             return;
           }
 
-          User.create({ googleID: profile.id })
+          User.create({ googleID: profile.id, username: profile.displayName, firstname: profile.name.givenName, lastname:profile.name.familyName, email: profile.emails[0].value, avatar: profile.photos[0].value})
             .then(newUser => {
               done(null, newUser);
             })
