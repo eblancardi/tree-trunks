@@ -125,6 +125,10 @@ app.use('/user', user_router);
 
 app.use(session({
   secret: "our-passport-local-strategy-app",
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
   resave: true,
   saveUninitialized: true
 }));
