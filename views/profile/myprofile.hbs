@@ -2,8 +2,12 @@
 
 <h1>My profile</h1>
 <h2>Hello {{user.username}}  🌱</h2> 
+{{#if user.avatar}}
 <img src="{{user.avatar}}" alt="">
-<p>Some info about me Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolorum saepe corrupti inventore eum?</p>
+{{else}}
+<img src="../../images/user-test.png" alt="">
+{{/if}}
+<a class="button" href="/plant">Plant a new tree</a>
 <a class="button" href="/profile/edit">Edit profile</a>
 
 <h2>My fav tree</h2>

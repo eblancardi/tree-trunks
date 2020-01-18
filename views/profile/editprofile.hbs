@@ -1,42 +1,36 @@
 <a class="button" href="/profile">Back to my profile</a>
 
-<h1>My profile</h1> <!-- Faire le lien avec la bd : afficher le username-->
-<h2>My name</h2> <!-- Faire le lien avec la bd : afficher le nom du user-->
-<h2>My email</h2> <!-- Faire le lien avec la bd : afficher l'email du user-->
+<h1>Edit profile </h1>
+<h2>{{user.username}}</h2>
+{{#if user.avatar}}
+<img src="{{user.avatar}}" alt="">
+{{else}}
+<img src="../../images/user-test.png" alt="">
+{{/if}}
 
-<button class="button">Edit profile </button>
-
-<!-- Faire un pop up pour le form -->
-<form action="/profile/edit" method="POST">
-  {{!-- <div>
-     <label for="username">New Username</label>
-    <input id="username" type="text" name="username" placeholder="JohnDoe">
-  </div>   --}}
-
-  {{!-- <div>
-    <label for="email">New Email</label>
-    <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
-  </div>  --}}
-
+<h3>Upload new picture:</h3>
+<form action="/profile/edit" method="POST" enctype="multipart/form-data">
   <div>
-    <label for="email">Confirm new email</label>
-    <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
-  </div>  
-
-  {{!-- <div> 
-      <label for="password">New password</label>
-      <input id="password" type="password" name="password" placeholder="toto">
-  </div> --}}
-
-  {{!-- <div> 
-    <label for="password">Confirm new password</label>
-    <input id="password" type="password" name="password" placeholder="toto">
-  </div> --}}
-  <div>
-  <button class="button" type="submit" value="Edit Profile">Change you profile</button>
+    <input type="file" name="photo">  
+  </div>
+<div>
+  <button class="button" type="submit" name="update_picture" >Update picture</button>
 </div>
 </form>
 
+<h3>Update email address:</h3>
+  <div>
+    <p>Current email: {{user.email}}</p>
+  </div>
+  <form action="/profile/edit" method="POST">
+  <div>
+    <label for="email">New email:</label>
+    <input id="email" type="text" name="email" value="{{user.email}}" placeholder="JohnDoe@email.com">
+  </div> 
+  <div> 
+  <button class="button" name="update_email" type="submit" >Update email</button>
+</div>
+</form> 
 
 
 <div>
