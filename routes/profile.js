@@ -31,23 +31,18 @@ profile_router.get('/edit', (req, res, next) => {
 });
 
 profile_router.post('/edit', (req, res) => {
+  //
+  if (!req.user) {
+    res.redirect('/login');
+    return;
+  }
 
   // à débugger pour mettre à jour les users avec edituser
-    console.log(req.user);
-  User.update({_id: req.user._id}, { $set: {
-  username: req.body.username
-  //       firstname,
-  //       lastname,
-  //       email,
-  //       password
- }}, { new: true })
-  //     .then(
- res.render('profile/myprofile')}) // exposer user lien avec db 
-  //   )
-
-      
-  // .catch ((error) => {
-  //   next(error)
-  // })});
+console.log(req.user);
+  req.user.email = req.body.email;
+  req.user.save().then(user => {
+    res.render('profile/myprofile', {user: req.user}) // exposer user lien avec db 
+  }).catch(next);
+})
 
 module.exports = profile_router;
