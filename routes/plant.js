@@ -5,38 +5,34 @@ const dataTrees = require("../public/javascripts/dataTrees");
 const User = require ("../models/user");
 
 plant_router.get('/', (req, res, next) => {
-  console.log("hey" + req.user)
   res.render("plant/plant", {tree: dataTrees, user: req.user})
 });
 
 plant_router.post('/confirmation', (req, res, next) => {
   const {image,name,family,shape, description,bloom, climate, creatorID,country } = req.body;
-  console.log(creatorID)
-  console.log(req.user)
   const newTree = new userTree({image,name,family,shape,description,bloom,climate,creatorID,country});
   newTree.save()
     .then(() => {
-      req.user.trees.push(newTree);
-      console.log(req.user)
-      res.redirect('/plant/confirmation');
+      User.findByIdAndUpdate(req.user._id, { $push: {trees: newTree} }, {new:true})
+      .then(()=>{
+        res.redirect('/plant/confirmation')
     })
     .catch(error => {
       next(error);
-    })
-  ;
-});
+    });
+  }).catch(error => {
+  next(error);
+})
+})
 
 plant_router.get('/confirmation', (req, res, next) => {
-  console.log(req.user)
-  res.render('plant/confirmation', {tree: req.user.trees[trees.length-1].name});
-//   userTree.findOne({_id: req.params.id})
-//   .populate('User')
-//   .then(tree => {
-//     console.log('tree=', tree);
-//     res.render('plant/confirmation', {tree: userTree})
-//   })
-//   .catch(err => next(err))
-// ;
+  userTree.findById(req.user.trees[req.user.trees.length-1])
+  .then(tree => {
+    console.log(tree);
+  res.render('plant/confirmation', {tree})})
+  .catch(error => {
+    next(error);
+  })
 });
 
 module.exports = plant_router;
