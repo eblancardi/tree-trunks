@@ -5,16 +5,21 @@ const dataTrees = require("../public/javascripts/dataTrees")
 const User = require ("../models/user");
 
 plant_router.get('/', (req, res, next) => {
-  console.log(req.user)
+  console.log("hey" + req.user)
   res.render("plant/plant", {tree: dataTrees, user: req.user})
 });
 
-plant_router.post('/', (req, res, next) => {
-  console.log(req.body)
-  const {image,name,family,shape, description,bloom, climate, creator,country } = req.body;
-  const newTree = new userTree({image,name,family,shape,description,bloom,climate,creator,country});
+plant_router.post('/confirmation', (req, res, next) => {
+  const {image,name,family,shape, description,bloom, climate, creatorID,country } = req.body;
+  console.log(creatorID)
+  console.log(req.user)
+  const newTree = new userTree({image,name,family,shape,description,bloom,climate,creatorID,country});
   newTree.save()
-    .then(res.redirect('/plant/confirmation'), {tree: req.body, user: req.user})
+    .then(() => {
+      req.user.trees.push(newTree);
+      console.log(req.user)
+      res.redirect('/plant/confirmation');
+    })
     .catch(error => {
       next(error);
     })
@@ -22,8 +27,16 @@ plant_router.post('/', (req, res, next) => {
 });
 
 plant_router.get('/confirmation', (req, res, next) => {
-  console.log(req.body)
-  res.render('plant/confirmation', {tree: userTree, user: req.user});
+  console.log(req.user)
+  res.render('plant/confirmation', {tree: req.user.trees[trees.length-1].name});
+//   userTree.findOne({_id: req.params.id})
+//   .populate('User')
+//   .then(tree => {
+//     console.log('tree=', tree);
+//     res.render('plant/confirmation', {tree: userTree})
+//   })
+//   .catch(err => next(err))
+// ;
 });
 
 module.exports = plant_router;

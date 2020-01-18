@@ -3,6 +3,7 @@
 <h1>Choose tree</h1>
 
 <div class="grid">
+  {{user.username}}
     {{#each tree}}
       <div class='tree-block'>
         <img src="{{image}}"/>
@@ -12,12 +13,13 @@
         <p>Origin: {{origin}}</p>
         <p>Climate: {{climate}}</p>
         <p>Bloom: {{bloom}}</p>
-      {{#if user}}
+        {{user.username}}
+      {{#if ../user}}
         <button type="button" class="button" data-toggle="modal" data-target="#TreeModalCenter">
           Select and plant this tree
         </button>
         {{else}}
-        <a class="button" href="/login">Login to plant tree</a>
+        <a class="button" href="/login">Login to plant tree {{user.username}}</a>
         {{/if}}
       </div>
     
@@ -25,7 +27,7 @@
 
 <div class="modal fade" id="TreeModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <form action="/plant" method="POST">
+    <form action="/plant/confirmation" method="POST">
     <div class="modal-content">
         
           <input class="hidden" type="text" name="image" value="{{image}}">
@@ -35,6 +37,7 @@
           <input class="hidden" type="text" name="origin" value="{{origin}}">
           <input class="hidden" type="text" name="climate" value="{{climate}}">
           <input class="hidden" type="text" name="bloom" value="{{bloom}}">
+          <input class="hidden" type="text" name="creatorID" value="{{../user._id}}">
           <div class="modal-header">
             <h3 class="modal-title">Plant a {{family}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

@@ -9,7 +9,8 @@ const uploadCloud = require('../config/cloudinary.js');
 //});
 // autre méthode
 
-profile_router.get("/", (req, res) => {
+profile_router.get("/", (req, res, next) => {
+  console.log (req.user)
   if (!req.user) {
     res.redirect('/login'); // not logged-in
     return;
