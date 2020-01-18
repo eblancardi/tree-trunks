@@ -1,7 +1,7 @@
 const express = require('express');
 const plant_router  = express.Router();
 const userTree = require('../models/usertree.js');
-const dataTrees = require("../public/javascripts/dataTrees")
+const dataTrees = require("../public/javascripts/dataTrees");
 const User = require ("../models/user");
 
 plant_router.get('/', (req, res, next) => {

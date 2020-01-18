@@ -1,20 +1,21 @@
 require('dotenv').config();
 
-const bodyParser   = require('body-parser');
-const cookieParser = require('cookie-parser');
-const express      = require('express');
-const favicon      = require('serve-favicon');
-const hbs          = require('hbs');
-const mongoose     = require('mongoose');
-const logger       = require('morgan');
-const path         = require('path');
-const passport     = require("passport");
-const User         = require("./models/user");
-const session    = require("express-session");
-const MongoStore = require('connect-mongo')(session);
-const bcrypt = require("bcryptjs");
-const flash = require("connect-flash");
-const LocalStrategy = require("passport-local").Strategy;
+const bodyParser     = require('body-parser');
+const cookieParser   = require('cookie-parser');
+const express        = require('express');
+const favicon        = require('serve-favicon');
+const hbs            = require('hbs');
+const mongoose       = require('mongoose');
+const logger         = require('morgan');
+const path           = require('path');
+const passport       = require("passport");
+const User           = require("./models/user");
+const userTree       = require('./models/usertree');
+const session        = require("express-session");
+const MongoStore     = require('connect-mongo')(session);
+const bcrypt         = require("bcryptjs");
+const flash          = require("connect-flash");
+const LocalStrategy  = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true});
@@ -122,6 +123,12 @@ app.use('/profile', profile_router);
 
 const user_router = require('./routes/user');
 app.use('/user', user_router);
+
+app.get('/listtrees', (req, res, next) => {
+  userTree.find({ country: req.query.country })
+  .then(response => res.send(response))
+  .catch(err => console.log(err));
+})
 
 app.use(session({
   secret: "our-passport-local-strategy-app",

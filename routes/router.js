@@ -9,6 +9,13 @@ router.get('/', (req, res, next) => {
 
 router.get('/map', (req, res, next) => {
   res.render('map');
+  // onRegionClick: function(region)
+  // {  res.render('map', {
+  //   countrydata: response.data
+
+  // });}
+
 });
+
 
 module.exports = router;
