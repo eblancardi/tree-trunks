@@ -10,19 +10,16 @@ const userSchema = new Schema({
 
     googleID: { 
         type:String
-
     },
 
     firstname: {
       type: String,
       required: true,
-      unique: true
       },
 
     lastname:{
       type: String,
       required: true,
-      unique: true
       },
 
     email: {

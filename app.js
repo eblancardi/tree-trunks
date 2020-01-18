@@ -54,6 +54,10 @@ app.use(flash());
 
 app.use(session({
   secret: "our-passport-local-strategy-app",
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
   resave: true,
   saveUninitialized: true
 }));
@@ -109,33 +113,6 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-const index_router = require('./routes/router');
-app.use('/', index_router);
-
-const auth_router = require('./routes/authentication');
-app.use('/', auth_router);
-
-const plant_router = require('./routes/plant');
-app.use('/plant', plant_router);
-
-const profile_router = require('./routes/profile');
-app.use('/profile', profile_router);
-
-const user_router = require('./routes/user');
-app.use('/user', user_router);
-
-app.get('/listtrees', (req, res, next) => {
-  userTree.find({ country: req.query.country })
-  .then(response => res.send(response))
-  .catch(err => console.log(err));
-})
-
-app.use(session({
-  secret: "our-passport-local-strategy-app",
-  resave: true,
-  saveUninitialized: true
-}));
-
 passport.use(
   new GoogleStrategy(
     {
@@ -167,5 +144,27 @@ passport.use(
     }
   )
 );
+
+const index_router = require('./routes/router');
+app.use('/', index_router);
+
+const auth_router = require('./routes/authentication');
+app.use('/', auth_router);
+
+const plant_router = require('./routes/plant');
+app.use('/plant', plant_router);
+
+const profile_router = require('./routes/profile');
+app.use('/profile', profile_router);
+
+const user_router = require('./routes/user');
+app.use('/user', user_router);
+
+app.get('/listtrees', (req, res, next) => {
+  userTree.find({ country: req.query.country })
+  .then(response => res.send(response))
+  .catch(err => console.log(err));
+});
+
 
 module.exports = app;

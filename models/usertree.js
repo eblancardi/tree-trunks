@@ -10,7 +10,7 @@
     description: String,
     environment: String,
     climate: String,
-    creator: { type : Schema.Types.ObjectId, ref: 'userTree' },
+    creatorID: { type : Schema.Types.ObjectId, ref: 'User' },
     bloom: String,
     country: String,
     createdAt: {

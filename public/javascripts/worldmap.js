@@ -29,7 +29,7 @@ onRegionClick: function(element, code, region)
           //should return a json file
           console.log('response from back', response.data);
         });
-    alert(message);
+    
 }
    });
 });
