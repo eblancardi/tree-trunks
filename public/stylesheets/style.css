@@ -1,14 +1,18 @@
 
+
 body {
   text-align: center;
   padding: 50px;
   color: #1c292b;
   font-family: 'Annie Use Your Telescope', cursive, Helvetica, Arial, sans-serif;
   font-size: 150%;
+  background-size: auto;
+  background-repeat: repeat-y;
+  background-image: url('../images/bg-tree2.jpg');
 }
 
 a {
-  color: red;
+  color: rgb(96, 114, 96);
 }
 .button {
   display:block;
@@ -18,9 +22,11 @@ a {
   border: 1px solid #ffffff;
   border-radius: 4px;
   padding: 0.4em;
+  margin: 1em;
   cursor: pointer;
   width:80vw;
-  height: 2.5em;
+  max-width: 300px;
+  max-height: 4em;
   background-position: center;
   transition: background 0.8s;
   text-decoration:none;
@@ -34,6 +40,7 @@ img {
 max-width: 60vw;
 max-height: 50vh;
 display:block;
+margin: 3%;
 }
 
 .hidden {
@@ -43,3 +50,73 @@ display:block;
 .modal-body {
   text-align: center;
 }
+
+h1 {
+font-size: 3rem;
+}
+
+/* FLEXBOX & LAYOUT */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+header, footer {
+  display: flex;
+  justify-content: center;
+
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px, 0px, 20px, 0px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}
+
+.tree-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px, 0px, 30px, 0px;
+}
+
+/* MEDIA QUERIES */
+
+
+@media (min-width: 650px){
+
+  body {
+    background-size: cover;
+  }
+
+  .description.hidden {
+    display: block;
+  }
+
+  h1.main-title {
+    font-size: 8em;
+  }
+
+  h2.main-title {
+    font-size: 5em;
+    display: block;
+    margin-bottom: 80px;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+}
+

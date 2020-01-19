@@ -1,19 +1,27 @@
-
+<div class="page ">
 <header class = "header">
 {{#if user}}
-<p>Welcome {{user.username}}</p> 
-  <div>
-    <a class="button" href="/logout">Logout</a>
+<div>
+  <h2>Welcome {{user.username}}</h2> 
+  <a class="button" href="/logout">Logout</a>
   </div>
 {{else}}
-<nav >
+<nav>
   <a class="button" href="/login">Login</a>
   <a class="button" href="/signup">Signup</a>
 </nav>
 {{/if}}
 </header>
 
-<h1>tree trunks</h1>
-<h2>plant a tree today</h2>
-<div><a class="button" href="/plant">plant a tree</a></div>
-<div><a class="button" href="/map">see all tree trunks</a></div>
+<main>
+  <div><h1 class="main-title">tree trunks</h1></div>
+  <div><h2 class="main-title">plant a tree today</h2></div>
+  
+</main>
+<footer>
+  <nav>
+    <a class="button" href="/plant">plant a tree</a>
+    <a class="button" href="/map">see all tree trunks</a>
+  </nav>
+</footer>
+</div>

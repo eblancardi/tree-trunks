@@ -6,6 +6,7 @@
     name: String,
     family: String, 
     shape: String,
+    height: String,
     origin: String,
     description: String,
     environment: String,
@@ -13,11 +14,9 @@
     creatorID: { type : Schema.Types.ObjectId, ref: 'User' },
     bloom: String,
     country: String,
-    createdAt: {
-      type: Date,
-      default: new Date()
-    }
-  })
+  }, {
+    timestamps : { createdAt: "created_at", updatedAt: "updated_at" }
+  });
    
   const userTree = mongoose.model('Post', userTreeSchema);
    

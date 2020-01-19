@@ -1,9 +1,9 @@
 <h1>Congratulations!</h1>
 {{#if tree}}
-<h2>You have planted {{tree.name}}, a {{tree.family}} in {{tree.country}}!</h2>
+<h2>You have planted <strong><em>{{tree.name}}</em></strong>, a <strong>{{tree.family}}</strong> in <strong>{{tree.country}}</strong> !</h2>
 
 <img src="{{tree.image}}" alt="" class="tree-img">
-<p>{{tree.description}}</p>
+<p class="description hidden">{{tree.description}}</p>
 {{/if}}
 <h3><a class="button" href="/profile/mytrees">See all my trees</a></h3>
 <h3><a class="button" href="/map">See all world trees</a></h3>

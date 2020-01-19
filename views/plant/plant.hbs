@@ -1,42 +1,47 @@
-<a class="button" href="/">Back home</a>
+<a href="/">&lt; Back home</a>
 
-<h1>Choose tree</h1>
-
+<div>
+  {{#if user}}
+  <h1>{{user.username}}, choose a tree to plant</h1>
+  {{else}}
+  <div class="container">
+    <h1>Login to plant tree</h1>
+    <a class="button" href="/login">Go to login</a>
+  </div> 
+  {{/if}}
+  </div>
 <div class="grid">
-  {{user.username}}
     {{#each tree}}
       <div class='tree-block'>
         <img src="{{image}}"/>
-        <h2>{{family}}</h2>
-        <p>Shape: {{shape}}</p>
-        <p>Description: {{description}}</p>
-        <p>Origin: {{origin}}</p>
-        <p>Climate: {{climate}}</p>
-        <p>Bloom: {{bloom}}</p>
-        {{user.username}}
+        <h2><strong>{{family}}</strong></h2>
+        <p><b>Description:</b> {{description}}</p>
+        <p><b>Shape/height:</b> {{shape}} {{height}}</p>
+        <p><b>Origin:</b> {{origin}}</p>
+        <p><b>Environment:</b> {{environment}}</p>
+        <p><b>Climate:</b> {{climate}}</p>
       {{#if ../user}}
-        <button type="button" class="button" data-toggle="modal" data-target="#TreeModalCenter">
+        <button type="button" class="button" data-toggle="modal" data-target="#{{family}}">
           Select and plant this tree
         </button>
         {{else}}
-        <a class="button" href="/login">Login to plant tree {{user.username}}</a>
+        <a class="button" href="/login">Login to plant tree</a>
         {{/if}}
       </div>
     
     <!-- Modal -->
 
-<div class="modal fade" id="TreeModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="{{family}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <form action="/plant/confirmation" method="POST">
     <div class="modal-content">
-        
           <input class="hidden" type="text" name="image" value="{{image}}">
           <input class="hidden" type="text" name="family" value="{{family}}">
           <input class="hidden" type="text" name="shape" value="{{shape}}">
           <input class="hidden" type="text" name="description" value="{{description}}">
           <input class="hidden" type="text" name="origin" value="{{origin}}">
           <input class="hidden" type="text" name="climate" value="{{climate}}">
-          <input class="hidden" type="text" name="bloom" value="{{bloom}}">
+          <input class="hidden" type="text" name="environment" value="{{environment}}">
           <input class="hidden" type="text" name="creatorID" value="{{../user._id}}">
           <div class="modal-header">
             <h3 class="modal-title">Plant a {{family}}</h5>
@@ -64,3 +69,4 @@
     {{/each}}
 </div>
 
+</div>
