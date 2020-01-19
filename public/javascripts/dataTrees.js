@@ -44,7 +44,7 @@ const trees = [
 
   {
     family: 'Acacia Koa',
-    image: '../images/trees/tree-acacia-koa.png',
+    image: '../images/trees/tree-acacia-koa-t.png',
     type: 'Tree, broadleaf evergreen', 
     shape: 'Broad spreading',
     height: 'Up to 18 m in cultivation, taller when growing old',
@@ -128,7 +128,7 @@ const trees = [
 
   {
     family: 'Banyan',
-    image: '../images/trees/tree-banyan.png',
+    image: '../images/trees/tree-banyan-t.png',
     type: 'Tree, evergreen',
     height: 'Up to 20 m',
     origin: 'India, Sri Lanka and Bangladesh',
@@ -206,7 +206,7 @@ const trees = [
 
   {
     family: 'Bread Palm Tree',
-    image:  '../images/trees/tree-bread-palm-tree.png',
+    image:  '../images/trees/tree-bread-palm-tree-t.png',
     type: 'Cycad, evergreen',
     height: 'Up to 10 m, more commonly up to 6-7 m',
     origin: 'Moluccan Islands',
