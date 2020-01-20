@@ -2,21 +2,21 @@
 
 <h1>My trees</h1>
 
+{{#if usertree}}
 <div class="grid">
     {{#each usertree}}
     <div class='tree-block'>
     <img src="{{image}}"/>
-    <h2>{{name}} - {{family}}</h2>
-    <p>Planted in: {{country}}</p>
-    <p>On: {{createdDate}}</p>
+    <h2><b>{{name}} - {{family}}</b></h2>
+    <p><b>Planted in:</b> {{country}}</p>
+    <p><b>On:</b> {{prettifyDate createdAt}}</p>
     <p>{{description}}</p>
 
     </div>
     {{/each}}
 </div>
+{{else}}
+<h2>You don't have any tree yet!</h2>
+<a class="button" href="/plant">plant a tree</a>
+{{/if}}
 
-<img src="/images/tree-test.png" alt="" class="tree-img">
-<p>This is some information about the tree Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat ducimus voluptatum natus.</p>
-
-<img src="/images/tree-test.png" alt="" class="tree-img">
-<p>This is some information about the tree Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat ducimus voluptatum natus.</p>

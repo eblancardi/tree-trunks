@@ -2,23 +2,25 @@
 
 <h1>Edit profile </h1>
 <h2>{{user.username}}</h2>
+  <div class="container containerpic">
 {{#if user.avatar}}
 <img src="{{user.avatar}}" alt="">
 {{else}}
 <img src="../../images/user-test.png" alt="">
 {{/if}}
-
-<h3>Upload new picture:</h3>
-<form action="/profile/edit" method="POST" enctype="multipart/form-data">
-  <div>
-    <input type="file" name="photo">  
-  </div>
-<div>
-  <button class="button" type="submit" name="update_picture" >Update picture</button>
 </div>
-</form>
 
-<h3>Update email address:</h3>
+<div class="container">
+  <div>
+<h3><b>Upload new picture:</b></h3>
+<form action="/profile/edit" method="POST" enctype="multipart/form-data">
+    <input class="upload" type="file" name="photo">  
+  <button class="button" type="submit" name="update_picture" >Update picture</button>
+</form>
+</div> 
+
+<div>
+<h3><b>Update email address:</b></h3>
   <div>
     <p>Current email: {{user.email}}</p>
   </div>
@@ -27,44 +29,18 @@
     <label for="email">New email:</label>
     <input id="email" type="text" name="email" value="{{user.email}}" placeholder="JohnDoe@email.com">
   </div> 
-  <div> 
+  <div class="container"> 
   <button class="button" name="update_email" type="submit" >Update email</button>
 </div>
 </form> 
-
-
-<div>
+</div> 
+</div>
+<div class="container">
   <a class="button" href="/" type="submit" value="Delete profile">Delete profile</a>
-</div> <!-- Faire le lien avec la bd --> 
+</div>
+<!-- Faire le lien avec la bd --> 
 <!-- Faire un pop up de confirmation de la suppression du profil --> 
 
-<!-- code jenny sur img et pop up
-<img src="/images/user-test.png" alt="">
-<button>Change photo</button>
-<p>Some info about me Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolorum saepe corrupti inventore eum?</p>
-<div class="popup" onclick="myFunction()"> 
-  <button>Edit info</button>
-  <span class="popuptext" id="myPopup">
-    <p>Edit info</p>
-TO DO
-</form>
-  </span>
-</div>-->
 
-  <h2>My fav tree</h2>
-<img src="/images/tree-test.png" alt="" class="tree-img">
-<p>Some info about tree Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolorum saepe corrupti inventore eum?</p>
 
-<div>
-  <button class="button" href="/profile/mytrees">Edit favourite</a>
-</div>
-
-<!-- code jenny sur img et pop up
-<div class="popup" onclick="myFunction()">
-  <button>delete profile</button>
-  <span class="popuptext" id="myPopup">
-TO DO
-</form>
-  </span>
-  </div> -->
 

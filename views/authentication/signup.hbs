@@ -2,61 +2,74 @@
 
 <h1>No account yet ? Create your account</h1>
 
-<form action="/signup" method="POST">
- 
-  <div>
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username" placeholder="JohnDoe">
-  </div>  
-
-    <div>
-    <label for="firstname">First name</label>
-    <input id="firstname" type="text" name="firstname" placeholder="John">
-  </div> 
-
-    <div>
-    <label for="lastname">Last name</label>
-    <input id="lastname" type="text" name="lastname" placeholder="Doe">
-  </div> 
-
-  <div>
-    <label for="email">Email</label>
-    <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
-  </div> 
-
-  <!--div>
-    <label for="email">Confirm email</label>
-    <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
-  </div-->  
-
-  <div> 
-      <label for="password">Password</label>
-      <input id="password" type="password" name="password" placeholder="toto">
-  </div>
-
-  <!--div> 
-    <label for="password">Confirm password</label>
-    <input id="password" type="password" name="password" placeholder="toto">
-  </div-->
-
-
-    {{#if message}}
-    {{message}}
-  {{/if}}
-  <div>
-    <input class="button" type="submit" value="Create account">
-  </div>
-</form>
-
 {{#unless user}}
-  <div>
+  <div class="container">
     <a class="button" href="/auth/google">Signup With Google</a>
   </div>
-{{/unless}}
 
+<p>Or fill in your personal information:</p>
+
+<form class="container" action="/signup" method="POST">
+ 
+   <div><label for="username">Username: </label><input id="username" type="text" name="username" placeholder="JohnDoe"></div>  
+
+  <div><label for="firstname">First name: </label><input id="firstname" type="text" name="firstname" placeholder="John"></div> 
+
+  <div><label for="lastname">Last name: </label><input id="lastname" type="text" name="lastname" placeholder="Doe"></div> 
+
+  <div><label for="email">Email: </label><input id="email" type="text" name="email" placeholder="JohnDoe@email.com"></div> 
+
+  <div> <label for="password">Password: </label><input id="password" type="password" name="password"></div>
+
+  {{#if message}}
+    {{message}}
+  {{/if}}
+  <div><input class="button" type="submit" value="Create account"></div>
+</form> 
+
+
+  {{!-- TEST BOOTSTRAP FORM
+  <form class="container" action="/signup" method="POST">
+  <label>
+    <p class="label-txt">Username:</p>
+    <input id="username" type="text" name="username" placeholder="JohnDoe">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  <label>
+    <p class="label-txt">First name:</p>
+    <input id="firstname" type="text" name="firstname" placeholder="John">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+      <p class="label-txt">Last name:</p>
+    <input id="lastname" type="text" name="lastname" placeholder="Doe">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  <label>
+    <p class="label-txt">Email:</p>
+    <input id="email" type="text" name="email" placeholder="JohnDoe@email.com">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  <label>
+    <p class="label-txt">Password:</p>
+    <input id="password" type="password" name="password">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  <button type="submit" class="button">Sign up</button>
+</form> --}}
+
+{{/unless}}
+<div class="container">
 <p class="account-message">
-  Do you already have an account ?
+  Already have an account ?
   <a class="button" href="/login">Login</a>
 </p>
-
-</form>

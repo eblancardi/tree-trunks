@@ -1,36 +1,56 @@
 <a href="/">&lt; Back home</a>
 
-<h1>Login with Email</h1>
-
-<form action="/login" method="POST">
-  <div>
-    <label for="username">Username</label>
-      <input type="text" name="username">
-  </div>  
-  <div>
-    <label for="email">Email</label>
-    <input type="email" name="email">
-  </div>  
-  <div> 
-    <label for="password">Password</label>
-    <input type="password" name="password" >
-  </div>
-  {{#if message}}
-  <div class="error-message"> {{ message }}</div>
-  {{/if}}
-  <div>
-    <input class="button" type="submit" value="Log In">
-  </div>
-</form>
-<h2>Or :</h2>
+<h1>Login to your account</h1>
+<br>
 {{#unless user}}
-  <div>
+  <div class="container">
     <a class="button" href="/auth/google">Login With Google</a>
   </div>
 {{/unless}}
+<p>Or :</p>
+ <form action="/login" method="POST">
+ 
+  <div> <label for="username">Username: </label> <input type="text" name="username"></div>
+  {{!-- <div> <label for="email">Email: </label> <input type="email" name="email"></div> --}}
+  <div> <label for="password">Password: </label> <input type="password" name="password"></div>
+  {{#if message}}
+  <div class="error-message"> {{ message }}</div>
+  {{/if}}
+  <div class="container">
+    <input class="button" type="submit" value="Log In">
+  </div>
+</form> 
+{{!-- TEST BOOTSTRAP <div class="container">
+<form action="/login" method="POST">
+<div>
+  <label>
+    <p class="label-txt">Enter email:</p>
+    <input type="text" class="input" name="email">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  </div>
+  <div>
+  <label>
+    <p class="label-txt">Enter password:</p>
+    <input type="password" class="input" name:"password">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  </div>
+    {{#if message}}
+  <div class="error-message"> {{ message }}</div>
+  {{/if}}
+  <button type="submit" class="button">Login</button>
+</form>
+</div> --}}
 
+
+  <div class="container">
 <p class="account-message">
 No account yet? <a class="button" href="/signup">Signup</a>
 </p>
-
+</div>
 

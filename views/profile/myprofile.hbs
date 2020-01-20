@@ -2,23 +2,34 @@
 
 <h1>My profile</h1>
 <h2>Hello {{user.username}}  🌱</h2> 
+<div class="container">
 {{#if user.avatar}}
 <img src="{{user.avatar}}" alt="">
 {{else}}
 <img src="../../images/user-test.png" alt="">
 {{/if}}
+</div>
+<div class="container">
+<nav>
 <a class="button" href="/plant">Plant a new tree</a>
 <a class="button" href="/profile/edit">Edit profile</a>
-
+</nav>
+</div>
+{{! TODO
 <h2>My fav tree</h2>
 <img src="/images/tree-test.png" alt="" class="tree-img">
 <p>Some info about tree Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolorum saepe corrupti inventore eum?</p>
 <div>
+
   <a class="button" href="/profile/mytrees">Edit favourite</a>
 </div>
-<div>
-  <a class="button" href="/profile/mytrees">See all my trees</a>
-</div>
-  <div>
+}}
+<footer>
+  <nav>  
+    <a class="button" href="/profile/mytrees">See all my trees</a>
     <a class="button" href="/logout">Logout</a>
-  </div>
+  </nav>
+</footer>
+
+
+  

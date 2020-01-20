@@ -81,12 +81,12 @@ passport.use(new LocalStrategy(
   (...args) => {
     const [req,,, done] = args;
 
-    const {username,email,password} = req.body;
+    const {username,password} = req.body;
 
-    User.findOne({username}||{email})
+    User.findOne({username})
       .then(user => {
         if (!user) {
-          return done(null, false, { message: "Incorrect username or email" });
+          return done(null, false, { message: "Incorrect email" });
         }
           
         if (!bcrypt.compareSync(password, user.password)) {
@@ -112,6 +112,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+
+//date format in hbs
+hbs.registerHelper("prettifyDate", function(timestamp) {
+ return (new Date(timestamp)).toString('yyyy-MM-dd')
+});
 
 passport.use(
   new GoogleStrategy(

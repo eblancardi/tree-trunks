@@ -1,78 +1,8 @@
 const trees = [
-  
-  {
-    family: 'Norway Maple',
-    image: '../images/trees/tree-norway-maple.png',
-    type: 'Tree, deciduous broadleaf', 
-    shape: 'Broad columnar',
-    height: 'In urban landscape use, typically around 5 to 10 m',
-    origin: 'Europe',
-    environment: 'Forests, from sea level to 1200 m. altitude',
-    climate: 'Mild, temperate, cool',
-    availability: ['Italy', 'Switzerland', 'Austria', 'Sweden', 'Norway'],
-    description:
-    'Norway Maple is a popular choice for urban decoration around the world, especially for medium-sized streets and small parks. The Autumn colors are intense and varied. It is chosen as urban decoration because of it’s tolerance for air pollution in big cities. In the USA it has become an infesting species, because it takes the place of native essences.'
-  },
-
-  {
-    family: 'Weeping Bottlebrush',
-    image: '../images/trees/tree-weeping-bottlebrush.png',
-    type: 'Tree/shrub, broadleaf evergreen', 
-    shape: 'Broad columnar',
-    height: 'Up to 16 m. as tree, much smaller as shrub',
-    origin: 'Australia (Queensland, New South Wales)',
-    environment: 'Along water courses on the coastal plains; in full sunlight; on moist, well-drained soils',
-    climate: 'Warm, temperate; salt- and fire-resistant',
-    availability: ['Australia', 'New Zealand', 'New Caledonia', 'Philippines', 'India'],
-    description:
-    'This Callistemon species is generally noted for its showy red flowers and the weeping shape, that can be more or less pronounced depending on the different subspecies. Although frequent in shrubby, it can also reach notable tree sizes of 12-16 m. when growing in favorable conditions. It will grow even in water logged soils, but it is sensitive to frost and to direct salt sprays. It has proved to be well resistant to smog and therefore it is often planted for urban decoration.'
-  },
-
-  {
-    family: 'Manna Gum Tree',
-    image: '../images/trees/tree-manna-gum-tree.png',
-    type: 'Tree, broadleaf evergreen', 
-    shape: 'Broad columnar',
-    height: 'Up to 50 m. (commonly around 25 m.)',
-    origin: 'Southeastern Australia (Victoria, New South Wales), Tasmania',
-    environment: 'Mountain forests',
-    climate: 'Warm, temperate',
-    availability:  ['Australia', 'New Zealand', 'New Caledonia', 'Tasmania'],
-    description:
-    'Also known as Wild Gum or Ribbon Gum, this tree is widely distributed in the cooler South-eastern regions of Australia, and in Tasmania as well. The leaves are one of the favorites of Koalas. The high sugar content of the sap makes the trunk also a food source for tree dwelling marsupial mammals. The timber is easily workable but has low durability. The tallest known exemplar is in Tasmania and reaches the unusual impressive height of 89 m.'
-  },
-
-  {
-    family: 'Acacia Koa',
-    image: '../images/trees/tree-acacia-koa-t.png',
-    type: 'Tree, broadleaf evergreen', 
-    shape: 'Broad spreading',
-    height: 'Up to 18 m in cultivation, taller when growing old',
-    origin: 'Hawaii (Hawai’I, Maui, Oahu)',
-    environment: 'Dry to wet forests, from 70 to 2300m altitude',
-    climate: 'Warm, temperate',
-    availability: ['Hawaii'],
-    description:
-    'Koa is one of the fastest growing Hawaiian trees, as it can reach 20 feet in five years. However, after that, it takes 50 years to reach a commercially useful dimension, and for this reason it is not often farmed. Ancient Hawaiians used to build their canoes with the trunk of Koa. The reddish wood is today used for musical instruments, like the typical "Ukulele". Grazing has much reduced the Koa population on the Hawaii islands, making the regeneration nearly impossible.'
-  },
-
-  {
-    family: 'White Kauri',
-    image: '../images/trees/tree-white-kauri.png',
-    type: 'Tree, conifer evergreen', 
-    shape: 'Broad columnar',
-    height: 'Up to 30 m, on average around 15 m',
-    origin: 'New Caledonia',
-    environment: 'Subtropical rainforest, from 0 to 1000 m altitude',
-    climate: 'Warm, temperate; humid',
-    availability: ['Australia', 'New Zealand', 'New Caledonia', 'Tasmania'],
-    description:
-    'The White Kauri is a big tree that grows in dense forests, on sedimentary or metamorphic rocks, dominating over the other tree species. The trunk can reach the impressive diameter of 1,5 meters or more. The White Kauri is an endangered species that is threatened by habitat loss. The timber is one of the finest in Oceania: it is used in the production of guitars especially, and it’s appreciated for the very light color and the delicate, sweet tone.'
-  },
 
   {
     family: 'Kanuka',
-    image: '../images/trees/tree-kanuka.png',
+    image: '../images/trees/tree-kanuka-r.png',
     type: 'Tree/Shrub, broadleaf evergreen', 
     shape: 'Broad spreading',
     height: 'Up to 30 m, more typically 15 m',
@@ -85,8 +15,22 @@ const trees = [
   },
 
   {
+    family: 'White Kauri',
+    image: '../images/trees/tree-white-kauri-r.png',
+    type: 'Tree, conifer evergreen', 
+    shape: 'Broad columnar',
+    height: 'Up to 30 m, on average around 15 m',
+    origin: 'New Caledonia',
+    environment: 'Subtropical rainforest, from 0 to 1000 m altitude',
+    climate: 'Warm, temperate; humid',
+    availability: ['Australia', 'New Zealand', 'New Caledonia', 'Tasmania'],
+    description:
+    'The White Kauri is a big tree that grows in dense forests, on sedimentary or metamorphic rocks, dominating over the other tree species. The trunk can reach the impressive diameter of 1,5 meters or more. The White Kauri is an endangered species that is threatened by habitat loss. The timber is one of the finest in Oceania: it is used in the production of guitars especially, and it’s appreciated for the very light color and the delicate, sweet tone.'
+  },
+
+  {
     family: 'Weeping European Beech',
-    image: '../images/trees/tree-weeping-european-beech.png',
+    image: '../images/trees/tree-weeping-european-beech-r.png',
     type:'Tree, deciduous broadleaf', 
     shape: 'Broad columnar',
     height: 'Up to 30 m',
@@ -100,7 +44,7 @@ const trees = [
 
   {
     family: 'Oriental Planetree',
-    image: '../images/trees/tree-oriental-planetree.png',
+    image: '../images/trees/tree-oriental-planetree-r.png',
     type: 'Tree, deciduous broadleaf',
     shape: 'Broad columnar',
     height: 'Up to 30 m',
@@ -114,7 +58,7 @@ const trees = [
 
   {
     family: 'Service Tree',
-    image: '../images/trees/tree-service-tree.png',
+    image: '../images/trees/tree-service-tree-r.png',
     type: 'Tree, deciduous broadleaf', 
     shape: 'Broad spreading',
     height: 'Up to 22 m',
@@ -128,7 +72,7 @@ const trees = [
 
   {
     family: 'Banyan',
-    image: '../images/trees/tree-banyan-t.png',
+    image: '../images/trees/tree-banyan-r.png',
     type: 'Tree, evergreen',
     height: 'Up to 20 m',
     origin: 'India, Sri Lanka and Bangladesh',
@@ -141,7 +85,7 @@ const trees = [
 
   {
     family: 'Giant Crape Myrtle',
-    image: '../images/trees/tree-giant-craple-myrtle.png',
+    image: '../images/trees/tree-giant-craple-myrtle-r.png',
     type: 'Tree, deciduous flowering',
     height: 'Up to 20 m',
     origin: 'Southeast Asia',
@@ -151,10 +95,66 @@ const trees = [
     description:
     'Also known as the Queen’s Crape Myrtle or the Banabá, the Giant Crape Myrtle is a popular ornamental plant due to its bright pink flowers. Flowers grow in long panicles and they blossom from summer to autumn. Its leaves are used in preparation of types of tea, and Banabá extract is used as a natural health supplement.'
   },
+  
+  {
+    family: 'Weeping Bottlebrush',
+    image: '../images/trees/tree-weeping-bottlebrush-r.png',
+    type: 'Tree/shrub, broadleaf evergreen', 
+    shape: 'Broad columnar',
+    height: 'Up to 16 m. as tree, much smaller as shrub',
+    origin: 'Australia (Queensland, New South Wales)',
+    environment: 'Along water courses on the coastal plains; in full sunlight; on moist, well-drained soils',
+    climate: 'Warm, temperate; salt- and fire-resistant',
+    availability: ['Australia', 'New Zealand', 'New Caledonia', 'Philippines', 'India'],
+    description:
+    'This Callistemon species is generally noted for its showy red flowers and the weeping shape, that can be more or less pronounced depending on the different subspecies. Although frequent in shrubby, it can also reach notable tree sizes of 12-16 m. when growing in favorable conditions. It will grow even in water logged soils, but it is sensitive to frost and to direct salt sprays. It has proved to be well resistant to smog and therefore it is often planted for urban decoration.'
+  },
 
   {
-    family: 'Mazari Palm',
-    image: '../images/trees/tree-mazari-palm.png',
+    family: 'Manna Gum Tree',
+    image: '../images/trees/tree-manna-gum-tree-r.png',
+    type: 'Tree, broadleaf evergreen', 
+    shape: 'Broad columnar',
+    height: 'Up to 50 m. (commonly around 25 m.)',
+    origin: 'Southeastern Australia (Victoria, New South Wales), Tasmania',
+    environment: 'Mountain forests',
+    climate: 'Warm, temperate',
+    availability:  ['Australia', 'New Zealand', 'New Caledonia', 'Tasmania'],
+    description:
+    'Also known as Wild Gum or Ribbon Gum, this tree is widely distributed in the cooler South-eastern regions of Australia, and in Tasmania as well. The leaves are one of the favorites of Koalas. The high sugar content of the sap makes the trunk also a food source for tree dwelling marsupial mammals. The timber is easily workable but has low durability. The tallest known exemplar is in Tasmania and reaches the unusual impressive height of 89 m.'
+  },
+
+  {
+    family: 'Norway Maple',
+    image: '../images/trees/tree-norway-maple-r.png',
+    type: 'Tree, deciduous broadleaf', 
+    shape: 'Broad columnar',
+    height: 'In urban landscape use, typically around 5 to 10 m',
+    origin: 'Europe',
+    environment: 'Forests, from sea level to 1200 m. altitude',
+    climate: 'Mild, temperate, cool',
+    availability: ['Italy', 'Switzerland', 'Austria', 'Sweden', 'Norway'],
+    description:
+    'Norway Maple is a popular choice for urban decoration around the world, especially for medium-sized streets and small parks. The Autumn colors are intense and varied. It is chosen as urban decoration because of it’s tolerance for air pollution in big cities. In the USA it has become an infesting species, because it takes the place of native essences.'
+  },
+
+  {
+    family: 'Acacia Koa',
+    image: '../images/trees/tree-acacia-koa-r.png',
+    type: 'Tree, broadleaf evergreen', 
+    shape: 'Broad spreading',
+    height: 'Up to 18 m in cultivation, taller when growing old',
+    origin: 'Hawaii (Hawai’I, Maui, Oahu)',
+    environment: 'Dry to wet forests, from 70 to 2300m altitude',
+    climate: 'Warm, temperate',
+    availability: ['Hawaii'],
+    description:
+    'Koa is one of the fastest growing Hawaiian trees, as it can reach 20 feet in five years. However, after that, it takes 50 years to reach a commercially useful dimension, and for this reason it is not often farmed. Ancient Hawaiians used to build their canoes with the trunk of Koa. The reddish wood is today used for musical instruments, like the typical "Ukulele". Grazing has much reduced the Koa population on the Hawaii islands, making the regeneration nearly impossible.'
+  },
+
+  {
+    family: 'Mazari Palm Tree',
+    image: '../images/trees/tree-mazari-palm-r.png',
     type: 'Palm',
     height: 'Up to 3 m',
     origin: 'Afghanistan and Pakistan',
@@ -167,7 +167,7 @@ const trees = [
 
   {
     family: 'Curry Leaf Tree',
-    image: '../images/trees/tree-curry-leaf-tree.png',
+    image: '../images/trees/tree-curry-leaf-tree-r.png',
     type: 'Tree/shrub, deciduous',
     height: 'Up to 6m',
     origin: 'Southern India',
@@ -180,7 +180,7 @@ const trees = [
 
   {
     family: 'Flame of the Forest',
-    image: '../images/trees/tree-flame-of-the-forest.png',
+    image: '../images/trees/tree-flame-of-the-forest-r.png',
     type: 'Tree, deciduous flowering',
     height: 'Up to 15 m',
     origin: 'India and Southeast Asia',
@@ -193,7 +193,7 @@ const trees = [
 
   {
     family: 'Jaggery Palm Tree',
-    image: '../images/trees/tree-jaggery-palm.png',
+    image: '../images/trees/tree-jaggery-palm-r.png',
     type: 'Palm',
     height: 'Up to 20 m',
     origin: 'Sri Lanka, India and Myanmar',
@@ -206,7 +206,7 @@ const trees = [
 
   {
     family: 'Bread Palm Tree',
-    image:  '../images/trees/tree-bread-palm-tree-t.png',
+    image:  '../images/trees/tree-bread-palm-tree-r.png',
     type: 'Cycad, evergreen',
     height: 'Up to 10 m, more commonly up to 6-7 m',
     origin: 'Moluccan Islands',

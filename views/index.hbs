@@ -3,7 +3,10 @@
 {{#if user}}
 <div>
   <h2>Welcome {{user.username}}</h2> 
+  <nav>
+  <a class="button" href="/profile">Go to profile</a>
   <a class="button" href="/logout">Logout</a>
+  </nav>
   </div>
 {{else}}
 <nav>

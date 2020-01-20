@@ -8,12 +8,23 @@ body {
   font-size: 150%;
   background-size: auto;
   background-repeat: repeat-y;
-  background-image: url('../images/bg-tree2.jpg');
+  background-image: url('../images/bg-full.jpg');
 }
 
 a {
   color: rgb(96, 114, 96);
 }
+
+a:hover, a:active {
+color: black;
+text-decoration: none;
+}
+
+.button:hover, .button:active {
+  color: black;
+  text-decoration: none;
+  }
+
 .button {
   display:block;
   text-align: center;
@@ -31,8 +42,13 @@ a {
   transition: background 0.8s;
   text-decoration:none;
   }
+
+.button.grey {
+background-color: cadetblue;
+}
+
 .button:active {
-  box-shadow: 0 3px 0 #071a52;
+  box-shadow: 0 3px 0 darkslategrey;
   top: 3px;
   }
 
@@ -43,6 +59,21 @@ display:block;
 margin: 3%;
 }
 
+input {
+  text-align: center;
+  margin: 0 auto;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+}
+
+.upload {
+  display: block;
+  width: 70%;
+}
+
 .hidden {
   display:none;
 }
@@ -51,7 +82,9 @@ margin: 3%;
   text-align: center;
 }
 
-h1 {
+
+h1, h2 {
+  padding-top: 3vh;
 font-size: 3rem;
 }
 
@@ -70,11 +103,30 @@ header, footer {
 
 }
 
+
+
 main {
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 5px, 0px, 20px, 0px;
+}
+
+.modal, .modal-dialog, .modal-dialog-centered,{
+  text-align: center;
+  size: 90%;
+}
+
+.modal-content {
+  text-align: center;
+  max-width: 90vw;
+  margin: 0 3.5vw;
+
+}
+
+.modal-footer {
+  display:flex;
+  justify-content: center;
 }
 
 .container {
@@ -97,9 +149,6 @@ main {
 
 @media (min-width: 650px){
 
-  body {
-    background-size: cover;
-  }
 
   .description.hidden {
     display: block;
@@ -118,5 +167,26 @@ main {
   h2 {
     font-size: 2em;
   }
-}
+
+  .modal-dialog-centered {
+    min-width: 50vw;
+  }
+  .modal, .modal-dialog, .modal-dialog-centered, .modal-content {
+    margin: 0 auto;
+    size:100%;
+    }
+
+    
+  nav {
+      display: flex;
+      justify-content: center;
+      }
+  
+  .containeredit {
+flex-direction: row;
+  }
+
+
+
+
 
