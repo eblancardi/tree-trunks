@@ -6,8 +6,8 @@ user_router.get('/:id', (req, res, next) => {
   res.render('user/user');
 });
 
-user_router.get('/:id/trees', (req, res, next) => {
-  res.render('user/usertrees');
+user_router.get('/:id/trees', (req, res, next) => {profile
+  res.render('user/usertrees', );
 });
 
 

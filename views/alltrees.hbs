@@ -1,0 +1,19 @@
+<a href="/">&lt; Back home</a>
+
+<h1>Tree trunks in the world</h1>
+
+<!-- <img src="/images/map-test.jpg" alt=""> 
+<div id="vmap" style="width: 1200px; height: 500px;"></div>
+-->
+
+<div class="grid">
+    {{#each trees}}
+    <div class='tree-block'>
+    <img src="{{image}}"/>
+    <h2><b>{{name}} - {{family}}</b></h2>
+    <p><b>Planted in:</b> {{country}}</p>
+    <p><b>On:</b>  {{created_at_short}}</p>
+    <p><b>By:</b>  {{creatorID.username}} <a class ="button" href="/user/{{creatorID.username}}">Visit {{creatorID.username}}'s profile</a></p>
+    <p>{{description}}</p>
+    {{/each}}
+    </div>

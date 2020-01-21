@@ -17,7 +17,7 @@ profile_router.get("/", (req, res, next) => {
     return;
   }
   
-  // ok, req.user is defined
+  // ok, req.user is definedPROGRESS
   res.render("profile/myprofile", { user: req.user });
 });
 
