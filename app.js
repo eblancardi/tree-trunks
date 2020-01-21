@@ -18,9 +18,9 @@ const flash          = require("connect-flash");
 const LocalStrategy  = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
-mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true});
+//mongoose.connect('mongodb://localhost:27017/tree-trunks', {useNewUrlParser: true});
 
-//mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 
 
 
