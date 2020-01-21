@@ -41,7 +41,7 @@ auth_router.post('/signup', (req, res, next) => {
       res.render("authentication/signup", { message: "The username already exists !" });
       return;
     }
-
+    
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
 
@@ -51,16 +51,18 @@ auth_router.post('/signup', (req, res, next) => {
       lastname,
       email,
       password: hashPass
-    });
+    })
 
-    newUser.save((err)=> {
-      if (err) {
-        console.log(err);
-        res.render("authentication/signup", { message: "Something went wrong !" });
-        } else {
+    newUser.save()
+      .then(newUser => {
+        req.login(newUser, err => {
+          if(err) {
+            return next(err)
+          }
           res.redirect("/profile");
-        }      
-      });
+        });
+      })
+      .catch(err => console.log(err));
   })
   .catch(error => {
     next(error)
