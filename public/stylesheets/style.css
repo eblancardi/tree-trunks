@@ -144,6 +144,14 @@ main {
   padding: 5px, 0px, 30px, 0px;
 }
 
+.avatar{
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: 25px auto;
+  border-radius: 50%;
+}
+
 /* MEDIA QUERIES */
 
 
