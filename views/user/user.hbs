@@ -1,16 +1,23 @@
 <a href="/">&lt; Back to all trees list</a>
 
-<h1>User's profile</h1>
-<h2>User name</h2>
-<img src="/images/user-test.png" alt="">
-<p>Some info about user Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolorum saepe corrupti inventore eum?</p>
+<h1>{{user.username}}'s profile</h1>
+<img class="avatar" src="{{user.avatar}}" alt="">
 
-<h2>User fav tree</h2>
-<img src="/images/tree-test.png" alt="" class="tree-img">
-<p>Some info about tree Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolorum saepe corrupti inventore eum?</p>
-<div>
-  <a class="button" href="/user/user-test/trees">See user's trees</a>
+<h2>User has planted the following trees:</h2>
+
+{{#if user.trees}}
+<div class="grid">
+    {{#each user.trees}}
+    <div class='tree-block'>
+    <img src="{{image}}"/>
+    <h2><b>{{name}} - {{family}}</b></h2>
+    <p><b>Planted in:</b> {{country}}</p>
+    <p><b>On:</b>{{created_at_short}}</p>
+    <p>{{description}}</p>
+
+    </div>
+    {{/each}}
 </div>
-<div>
-  <button>Send user a message</button>
-</div>
+{{else}}
+<h2>{{user.username}} hasn't planted any tree yet!</h2>
+{{/if}}
