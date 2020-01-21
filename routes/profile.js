@@ -23,7 +23,16 @@ profile_router.get("/", (req, res, next) => {
 
 profile_router.get('/mytrees', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   userTree.find()
-        .then(usertree => res.render('profile/mytrees',{user: req.user, usertree}))
+        .then(usertree => {
+          usertree.forEach(usertree => {
+          const date = usertree.created_at;
+          console.log(date)
+          const day = date.getDate();
+          var month = date.getMonth()+1;
+           if (month<10) {month=`0${month}`;}
+          const year = date.getFullYear()
+          usertree.created_at_short = `  ${day}-${month}-${year}`})
+          res.render('profile/mytrees',{user: req.user, usertree})})
         .catch(error => console.log('Error while getting tree from the DB: ', error))
 });
 
@@ -56,9 +65,9 @@ if (req.body.email!==req.user.email){
 
 })
 
-profile_router.post('/delete', (req, res, next) => {
+profile_router.post('/', (req, res, next) => {
   User.findByIdAndRemove(req.user.id)
-    .then(usere => res.redirect('/'))
+    .then(res.redirect('/'))
     .catch(err => next(err));
 });
 // User.deleteOne({ name: "Alice"})
