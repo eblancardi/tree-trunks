@@ -1,9 +1,9 @@
-<h2>Congratulations!</h2>
+<h1>Congratulations!</h1>
 {{#if tree}}
-<h3>You have planted <strong><em>{{tree.name}}</em></strong>, a <strong>{{tree.family}}</strong> in <strong>{{tree.country}}</strong> !</h3>
+<h2>You have planted <strong><em>{{tree.name}}</em></strong>, a <strong>{{tree.family}}</strong> in <strong>{{tree.country}}</strong> !</h2>
 
 <div class="tree-block">
-<img src="{{tree.image}}" alt="" class="tree-img">
+<img src="{{tree.image}}" alt="" class="tree-img" style="max-height: 30vh;">
 <p class="description hidden">{{tree.description}}</p>
 </div>
 {{/if}}
