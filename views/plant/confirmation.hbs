@@ -1,15 +1,14 @@
 <div class=page>
-<header>
+
 <h1>Congratulations!</h1>
 {{#if tree}}
 <h2>You have planted <strong><em>{{tree.name}}</em></strong>, a <strong>{{tree.family}}</strong> in <strong>{{tree.country}}</strong> !</h2>
-</header>
-<main class="tree-block">
+
+<div class="tree-block">
 <img src="{{tree.image}}" alt="" class="tree-img">
 <p class="description hidden">{{tree.description}}</p>
-</main>
+</div>
 {{/if}}
-
 <footer>
   <nav>
     <a class="button" href="/profile/mytrees">See all my trees</a>
