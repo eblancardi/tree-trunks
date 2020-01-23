@@ -13,7 +13,8 @@
     climate: String,
     creatorID: { type : Schema.Types.ObjectId, ref: 'User' },
     bloom: String,
-    country: String
+    country: String,
+    created_at_short: String
   }, {
     timestamps : { createdAt: "created_at", updatedAt: "updated_at" }
   });

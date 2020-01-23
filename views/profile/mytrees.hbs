@@ -10,13 +10,14 @@
     <h2><b>{{name}} - {{family}}</b></h2>
     <p><b>Planted in:</b> {{country}}</p>
     <p><b>On:</b>{{created_at_short}}</p>
-    <p>{{description}}</p>
+    <p class="description hidden">{{description}}</p>
 
     </div>
     {{/each}}
 </div>
 {{else}}
 <h2>You don't have any tree yet!</h2>
-<a class="button" href="/plant">plant a tree</a>
 {{/if}}
-
+<nav>
+<a class="button" href="/plant">Plant a new tree</a>
+</nav>

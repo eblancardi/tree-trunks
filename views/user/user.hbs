@@ -1,19 +1,24 @@
-<a href="/">&lt; Back to all trees list</a>  } )
+<a href="/">&lt; Back to all trees list</a> 
 
 <h1>{{user.username}}'s profile</h1>
+<div class="container">
+{{#if user.avatar}}
 <img class="avatar" src="{{user.avatar}}" alt="">
-
-<h2>User has planted the following trees:</h2>
+{{else}}
+<img class="avatar" src="../../images/user-test.png" alt="">
+{{/if}}
 
 {{#if user.trees}}
+<h2>User has planted the following trees:</h2>
+
 <div class="grid">
-    {{#each user.trees}}
+    {{#each trees}}
     <div class='tree-block'>
     <img src="{{image}}"/>
     <h2><b>{{name}} - {{family}}</b></h2>
     <p><b>Planted in:</b> {{country}}</p>
-    <p><b>On:</b>{{created_at_short}}</p>
-    <p>{{description}}</p>
+    <p><b>On:</b>  {{created_at_short}}</p>
+    <p class="description hidden">{{description}}</p>
 
     </div>
     {{/each}}

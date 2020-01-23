@@ -9,6 +9,7 @@ body {
   background-size: auto;
   background-repeat: repeat-y;
   background-image: url('../images/bg-full.jpg');
+  box-sizing: border-box;
 }
 
 a {
@@ -37,7 +38,7 @@ text-decoration: none;
   cursor: pointer;
   width:80vw;
   max-width: 300px;
-  max-height: 4em;
+  height: 60px;
   background-position: center;
   transition: background 0.8s;
   text-decoration:none;
@@ -95,6 +96,7 @@ font-size: 3rem;
   flex-direction: column;
   justify-content: center;
   vertical-align: middle;
+  height: 100%;
 }
 
 header, footer {
@@ -164,6 +166,7 @@ main {
 
   h1.main-title {
     font-size: 8em;
+    padding: 0;
   }
 
   h2.main-title {
@@ -194,6 +197,19 @@ main {
 flex-direction: row;
   }
 
+/* fit height */
+  body, html {height: 100%;}
+  header, footer {height: 20%;}
+  main {height:60%;}
+
+}
+
+
+/* fit height */
+body, html {height: 100%; padding: 10px;}
+header, footer {height: 25%;}
+main {height:50%;}
+h1.main-title {line-height: 50%}
 
 
 
