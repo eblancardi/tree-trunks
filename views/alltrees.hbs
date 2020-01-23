@@ -5,8 +5,19 @@
 <!-- <img src="/images/map-test.jpg" alt=""> 
 <div id="vmap" style="width: 1200px; height: 500px;"></div>
 -->
+{{!-- <form action="/alltrees" method="POST">
+<select name="country">
+{{#each trees}}
+    <option value="{{country}}">{{country}}</option>
+{{/each}}
+</select>
+<div class="container">
+    <button type="submit" class="button">View trees in this country</button>
+</div>
+</form> --}}
 
 <div class="grid">
+    
     {{#each trees}}
     <div class='tree-block'>
     <img src="{{image}}"/>

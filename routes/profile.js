@@ -22,19 +22,20 @@ profile_router.get("/", (req, res, next) => {
 });
 
 profile_router.get('/mytrees', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  userTree.find()
-        .then(usertree => {
-          usertree.forEach(usertree => {
-          const date = usertree.created_at;
-          console.log(date)
-          const day = date.getDate();
-          var month = date.getMonth()+1;
-           if (month<10) {month=`0${month}`;}
-          const year = date.getFullYear()
-          usertree.created_at_short = `  ${day}-${month}-${year}`})
-          res.render('profile/mytrees',{user: req.user, usertree})})
-        .catch(error => console.log('Error while getting tree from the DB: ', error))
-});
+    userTree.find({ creatorID: req.user._id })
+    .then(trees => {
+      console.log(trees);
+      res.render('profile/mytrees',{user: req.user, usertree: trees})})
+    .catch(next)
+  })
+
+
+//   userTree.find()
+//         .then(usertree => {
+//           console.log(req.user)
+//           res.render('profile/mytrees',{user: req.user, usertree: req.user.trees})})
+//         .catch(error => console.log('Error while getting tree from the DB: ', error))
+// });
 
 // route edit profile
 profile_router.get('/edit', (req, res, next) => {

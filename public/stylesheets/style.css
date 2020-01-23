@@ -53,6 +53,10 @@ background-color: cadetblue;
   top: 3px;
   }
 
+.error-message {
+    color:red
+  }
+  
 img {
 max-width: 60vw;
 max-height: 50vh;

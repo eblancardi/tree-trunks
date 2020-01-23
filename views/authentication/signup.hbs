@@ -1,5 +1,6 @@
-<a href="/">&lt; Back home</a>
 <div class="page">
+  <a href="/">&lt; Back home</a>
+
 <h1>No account yet ? Create your account</h1>
 
 {{#unless user}}
@@ -22,7 +23,9 @@
   <div> <label for="password">Password: </label><input id="password" type="password" name="password"></div>
 
   {{#if message}}
+  <p class="error-message">
     {{message}}
+    </p>
   {{/if}}
   <div><input class="button" type="submit" value="Create account"></div>
 </form> 

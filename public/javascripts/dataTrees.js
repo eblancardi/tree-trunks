@@ -218,4 +218,5 @@ const trees = [
   } 
 ]
 
+const availability= ['Malaysia', 'Australia', 'Philippines', 'Thailand','Sri Lanka', 'India', 'Myanmar','India', 'Cambodia', 'Malaysia', 'Philippines', 'Sri Lanka', 'Thailand']
 module.exports = trees;
