@@ -1,10 +1,13 @@
+<div class=page>
+<header>
 <h1>Congratulations!</h1>
 {{#if tree}}
 <h2>You have planted <strong><em>{{tree.name}}</em></strong>, a <strong>{{tree.family}}</strong> in <strong>{{tree.country}}</strong> !</h2>
-<div class="tree-block">
+</header>
+<main class="tree-block">
 <img src="{{tree.image}}" alt="" class="tree-img">
 <p class="description hidden">{{tree.description}}</p>
-</div>
+</main>
 {{/if}}
 
 <footer>
@@ -14,3 +17,4 @@
     <a class="button" href="/plant">plant another</a>
   </nav>
 </footer>
+</div>
