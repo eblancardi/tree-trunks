@@ -89,7 +89,7 @@ label {
 
 
 h1, h2 {
-  padding-top: 3vh;
+  padding-top: 5vh;
 font-size: 3rem;
 }
 
@@ -176,7 +176,6 @@ main {
   h2.main-title {
     font-size: 4em;
     display: block;
-    margin-bottom: 80px;
   }
 
   h2 {
